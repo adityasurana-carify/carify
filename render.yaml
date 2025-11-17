@@ -3,6 +3,7 @@ services:
     name: carify-frontend
     env: static
     branch: main
+    rootDir: .
     buildCommand: npm install && npm run build
     staticPublishPath: dist/public
     # Render uses Node 18 by default. Pin to 20.x to match local dev.
