@@ -9,6 +9,7 @@ import ProductValues from "@/components/ProductValues";
 import UseCases from "@/components/UseCases";
 import SocialProof from "@/components/SocialProof";
 import InteractiveFeatures from "@/components/InteractiveFeatures";
+import CarifyFeatures from "@/components/CarifyFeatures";
 import ExpandedFAQ from "@/components/ExpandedFAQ";
 import Testimonials from "@/components/Testimonials";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -102,6 +103,8 @@ export default function WhyCarifyPage() {
         <UseCases />
 
         <SocialProof />
+
+        <CarifyFeatures />
 
         <Testimonials />
 
