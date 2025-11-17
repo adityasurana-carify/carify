@@ -1,0 +1,91 @@
+# Prompt for Bolt.new: Carify.Health Website
+
+Create a modern, professional healthcare AI website for Carify.Health with two main pages:
+
+## Page 1: ROI Calculator Landing Page
+
+**Header:**
+- Brand name: "Carify.Health"
+- Navigation menu with links to both pages
+- CTA button: "Book a Demo"
+
+**Hero Section:**
+- Headline: "Let us save your time and costs with Carify Agents"
+- Subheadline: "As we handle the repetitive tasks that your staff does, freeing up their valuable time to focus on high-impact work, we can calculate how much meaningful financial impact we can create for you based on your volume."
+
+**Interactive ROI Calculator:**
+Create an interactive calculator with the following inputs:
+1. Average Call Time (in Mins) Per Patient - slider (0-60 mins)
+2. Total number of patients annually - number input
+3. Total number of calls per patient annually - number input
+
+Auto-calculated outputs:
+- Estimated time saved (in hours)
+- Total hours saved annually
+- Total dollars saved annually (using $20/hour default rate)
+
+Display outputs prominently with large numbers and currency formatting.
+
+Add disclaimer text: "The calculator assumes a default industry average rate of $20 per hour for the call handling role to compute the Total Dollars Saved"
+
+**CTA Section:**
+- "Contact Carify" button
+- "Ready to transform your healthcare operations with AI?"
+- "Book a Demo" button
+
+---
+
+## Page 2: Why Carify.Health
+
+**Hero Section:**
+- Headline: "Why Carify Health"
+- Description: "Carify Health transforms your practice by giving staff more time and patients better access. With seamless workflows and natural interactions, our AI Agents deliver measurable results every day."
+
+**Key Metrics Section (4 stat cards):**
+- We handle 75% of your phone calls
+- We increase your follow up encounters by 3 times
+- We save at least 2 hours/day of admin time for each staff member
+- We ensure your no shows are less than 5%
+
+**Integrations Section:**
+- Title: "Integrations"
+- Subtitle: "EHR and IVR integrations"
+- Description: "We are committed to making adoption effortless by deeply integrating with your existing systems, so your staff never has to learn another platform."
+
+**Safe & Reliable AI Section:**
+Full text: "Our proprietary language model is built on thousands of real-life interactions, clicks, actions, and repetitive tasks performed by staff, surpassing the performance of current state-of-the-art LLMs. We work with the same vendors who power the safety and compliance stack for the world's best generative AI companies. All our workflows are co-built by best physicians and staff managers across the country, making them extremely reliable."
+
+**FAQ Section:**
+Create an accordion-style FAQ with these questions:
+1. What are the work timings of your AI agents?
+   - Answer: "Our agents work 24/7 instead of set hours like humans. Additionally, our AI can handle multiple calls simultaneously."
+2. What happens when your agent doesn't know the answer to questions asked by patients?
+3. Can the AI support different languages like Spanish, Mandarin etc?
+4. Can we customize the workflows you provide to suit our practice needs?
+5. Can we access the call/message transcripts for quality analysis?
+6. Is it compulsory to have recorded calls for you to implement?
+
+**Footer CTA:**
+- "Ready to transform your healthcare operations with AI?"
+- "Book a Demo" button
+
+---
+
+## Design Requirements:
+- Modern, clean healthcare aesthetic with professional color scheme (blues, whites, accents)
+- Responsive design for mobile, tablet, and desktop
+- Smooth animations and transitions
+- Clear typography with good readability
+- Interactive elements with hover states
+- Professional gradient backgrounds
+- Card-based layouts for statistics and features
+- Accessible design with proper contrast
+
+## Technical Requirements:
+- Single-page application with smooth scrolling navigation
+- Functional ROI calculator with real-time calculations
+- Interactive FAQ accordion
+- Responsive navigation menu
+- Form validation for calculator inputs
+- Modern CSS animations
+- Mobile-first responsive design
