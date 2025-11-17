@@ -2,6 +2,7 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import logo from "@assets/image_1763376846289.png";
 
 export default function Header() {
   const [location] = useLocation();
@@ -20,7 +21,7 @@ export default function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" data-testid="link-home">
-            <span className="text-2xl font-bold text-primary">Carify.Health</span>
+            <img src={logo} alt="Carify Health" className="h-8 md:h-10" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-8">
