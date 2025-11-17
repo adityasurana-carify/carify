@@ -1,7 +1,15 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StatsCard from "@/components/StatsCard";
-import FAQAccordion from "@/components/FAQAccordion";
+import HeroValueProp from "@/components/HeroValueProp";
+import AIWorkflow from "@/components/AIWorkflow";
+import HowItWorks from "@/components/HowItWorks";
+import WhyItMatters from "@/components/WhyItMatters";
+import ProductValues from "@/components/ProductValues";
+import UseCases from "@/components/UseCases";
+import SocialProof from "@/components/SocialProof";
+import PlatformFeatures from "@/components/PlatformFeatures";
+import ExpandedFAQ from "@/components/ExpandedFAQ";
 import { Phone, TrendingUp, Clock, UserCheck, Shield, Zap, Globe } from "lucide-react";
 import heroImage from "@assets/generated_images/Modern_healthcare_team_collaboration_bab887f8.png";
 
@@ -69,6 +77,20 @@ export default function WhyCarifyPage() {
           </div>
         </section>
 
+        <HeroValueProp />
+
+        <AIWorkflow />
+
+        <HowItWorks />
+
+        <WhyItMatters />
+
+        <ProductValues />
+
+        <UseCases />
+
+        <SocialProof />
+
         <section className="py-16 md:py-24 bg-muted">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -116,20 +138,9 @@ export default function WhyCarifyPage() {
           </div>
         </section>
 
-        <section className="py-16 md:py-24 bg-background">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Frequently Asked Questions
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Everything you need to know about Carify Health
-              </p>
-            </div>
-            
-            <FAQAccordion />
-          </div>
-        </section>
+        <PlatformFeatures />
+
+        <ExpandedFAQ />
       </main>
       
       <Footer />
