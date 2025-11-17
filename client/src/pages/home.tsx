@@ -2,6 +2,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ROICalculator from "@/components/ROICalculator";
 import CTASection from "@/components/CTASection";
+import EnhancedHero from "@/components/EnhancedHero";
+import Testimonials from "@/components/Testimonials";
+import AnimatedSection from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -28,43 +31,56 @@ export default function HomePage() {
       <Header />
       
       <main className="flex-1">
-        <section className="relative py-20 md:py-32 bg-gradient-to-br from-primary/10 via-chart-2/10 to-background">
+        <EnhancedHero />
+        
+        <section className="relative py-20 md:py-24 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center space-y-6 mb-16 max-w-4xl mx-auto">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight" data-testid="text-hero-title">
-                Let us save your time and costs with Carify Agents
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto" data-testid="text-hero-subtitle">
-                As we handle the repetitive tasks that your staff does, freeing up their valuable time to focus on high-impact work, we can calculate how much meaningful financial impact we can create for you based on your volume.
-              </p>
-            </div>
+            <AnimatedSection>
+              <div className="text-center space-y-6 mb-16 max-w-4xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground leading-tight">
+                  Calculate Your ROI
+                </h2>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  See the financial impact Carify can create for your practice
+                </p>
+              </div>
+            </AnimatedSection>
             
-            <ROICalculator />
+            <AnimatedSection delay={0.2}>
+              <ROICalculator />
+            </AnimatedSection>
           </div>
         </section>
 
-        <section className="py-16 bg-background">
+        <Testimonials />
+
+        <section className="py-16 bg-muted">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <CTASection
-              title="Contact Carify"
-              buttonText="Book a Demo"
-              testId="cta-contact"
-            />
+            <AnimatedSection>
+              <CTASection
+                title="Contact Carify"
+                buttonText="Book a Demo"
+                testId="cta-contact"
+              />
+            </AnimatedSection>
           </div>
         </section>
 
-        <section id="book-demo" className="py-16 bg-muted">
+        <section id="book-demo" className="py-16 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl">
-            <div className="text-center space-y-4 mb-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                Book Your Demo
-              </h2>
-              <p className="text-muted-foreground">
-                Fill out the form below and we'll get in touch to schedule your personalized demo.
-              </p>
-            </div>
+            <AnimatedSection>
+              <div className="text-center space-y-4 mb-8">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                  Book Your Demo
+                </h2>
+                <p className="text-muted-foreground">
+                  Fill out the form below and we'll get in touch to schedule your personalized demo.
+                </p>
+              </div>
+            </AnimatedSection>
             
-            <form onSubmit={handleDemoSubmit} className="space-y-6 bg-card p-8 rounded-lg shadow-lg" data-testid="form-demo">
+            <AnimatedSection delay={0.2}>
+              <form onSubmit={handleDemoSubmit} className="space-y-6 bg-card p-8 rounded-lg shadow-lg" data-testid="form-demo">
               <div className="space-y-2">
                 <Label htmlFor="email">Email Address</Label>
                 <Input
@@ -93,6 +109,7 @@ export default function HomePage() {
                 Request Demo
               </Button>
             </form>
+            </AnimatedSection>
           </div>
         </section>
       </main>

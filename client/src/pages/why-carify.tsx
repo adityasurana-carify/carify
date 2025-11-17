@@ -8,8 +8,10 @@ import WhyItMatters from "@/components/WhyItMatters";
 import ProductValues from "@/components/ProductValues";
 import UseCases from "@/components/UseCases";
 import SocialProof from "@/components/SocialProof";
-import PlatformFeatures from "@/components/PlatformFeatures";
+import InteractiveFeatures from "@/components/InteractiveFeatures";
 import ExpandedFAQ from "@/components/ExpandedFAQ";
+import Testimonials from "@/components/Testimonials";
+import AnimatedSection from "@/components/AnimatedSection";
 import { Phone, TrendingUp, Clock, UserCheck, Shield, Zap, Globe } from "lucide-react";
 import heroImage from "@assets/generated_images/Modern_healthcare_team_collaboration_bab887f8.png";
 
@@ -39,40 +41,50 @@ export default function WhyCarifyPage() {
 
         <section className="py-16 md:py-24 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Measurable Results
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Real impact on your practice operations
-              </p>
-            </div>
+            <AnimatedSection>
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                  Measurable Results
+                </h2>
+                <p className="text-lg text-muted-foreground">
+                  Real impact on your practice operations
+                </p>
+              </div>
+            </AnimatedSection>
             
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <StatsCard
+              <AnimatedSection delay={0.1}>
+                <StatsCard
                 icon={Phone}
                 stat="75%"
                 description="We handle 75% of your phone calls"
                 testId="card-stat-calls"
               />
-              <StatsCard
+              </AnimatedSection>
+              <AnimatedSection delay={0.2}>
+                <StatsCard
                 icon={TrendingUp}
                 stat="3x"
                 description="We increase your follow up encounters by 3 times"
                 testId="card-stat-encounters"
               />
-              <StatsCard
+              </AnimatedSection>
+              <AnimatedSection delay={0.3}>
+                <StatsCard
                 icon={Clock}
                 stat="2+ hrs"
                 description="We save at least 2 hours/day of admin time for each staff member"
                 testId="card-stat-time"
               />
-              <StatsCard
+              </AnimatedSection>
+              <AnimatedSection delay={0.4}>
+                <StatsCard
                 icon={UserCheck}
                 stat="<5%"
                 description="We ensure your no shows are less than 5%"
                 testId="card-stat-noshows"
               />
+              </AnimatedSection>
             </div>
           </div>
         </section>
@@ -90,6 +102,10 @@ export default function WhyCarifyPage() {
         <UseCases />
 
         <SocialProof />
+
+        <Testimonials />
+
+        <InteractiveFeatures />
 
         <section className="py-16 md:py-24 bg-muted">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -137,8 +153,6 @@ export default function WhyCarifyPage() {
             </div>
           </div>
         </section>
-
-        <PlatformFeatures />
 
         <ExpandedFAQ />
       </main>

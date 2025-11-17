@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Workflow, Link as LinkIcon, Rocket } from "lucide-react";
+import AnimatedSection from "./AnimatedSection";
 
 const steps = [
   {
@@ -23,18 +24,21 @@ export default function HowItWorks() {
   return (
     <section className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            How It Works
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Get started in three simple steps
-          </p>
-        </div>
+        <AnimatedSection>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              How It Works
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Get started in three simple steps
+            </p>
+          </div>
+        </AnimatedSection>
         
         <div className="grid md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
-            <Card key={index} className="hover-elevate transition-transform" data-testid={`card-step-${index}`}>
+            <AnimatedSection key={index} delay={index * 0.15}>
+              <Card className="hover-elevate transition-transform h-full" data-testid={`card-step-${index}`}>
               <CardHeader>
                 <div className="flex items-center gap-4 mb-2">
                   <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground text-xl font-bold">
@@ -50,6 +54,7 @@ export default function HowItWorks() {
                 </p>
               </CardContent>
             </Card>
+            </AnimatedSection>
           ))}
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { LucideIcon } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface StatsCardProps {
   icon: LucideIcon;
@@ -10,7 +11,11 @@ interface StatsCardProps {
 
 export default function StatsCard({ icon: Icon, stat, description, testId }: StatsCardProps) {
   return (
-    <Card className="hover-elevate transition-transform" data-testid={testId}>
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      transition={{ type: "spring", stiffness: 300 }}
+    >
+      <Card className="hover-elevate transition-transform h-full" data-testid={testId}>
       <CardContent className="pt-6 text-center space-y-4">
         <div className="flex justify-center">
           <div className="p-3 bg-primary/10 rounded-lg">
@@ -27,5 +32,6 @@ export default function StatsCard({ icon: Icon, stat, description, testId }: Sta
         </div>
       </CardContent>
     </Card>
+    </motion.div>
   );
 }
