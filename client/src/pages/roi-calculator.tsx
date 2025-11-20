@@ -1,113 +1,96 @@
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { Footer } from "@/components/ui/footer";
+import { Phone, Calculator, ArrowRight } from "lucide-react";
 import ROICalculator from "@/components/ROICalculator";
-import CTASection from "@/components/CTASection";
 import Testimonials from "@/components/Testimonials";
-import ParallaxSection from "@/components/ParallaxSection";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+
+function ScrollCard({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+  const { ref, isVisible } = useScrollAnimation();
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {children}
+    </div>
+  );
+}
 
 export default function ROICalculatorPage() {
-  const { toast } = useToast();
-  const [email, setEmail] = useState("");
-  const [company, setCompany] = useState("");
-
-  const handleDemoSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Demo Request Received!",
-      description: "We'll contact you shortly to schedule your demo.",
-    });
-    setEmail("");
-    setCompany("");
-  };
 
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
       
       <main className="flex-1">
-        <section className="relative py-20 md:py-24 bg-background">
+        <section className="bg-gradient-to-br from-green-50 via-white to-blue-50 w-full text-sm pb-20 pt-20 relative overflow-hidden">
+          <div className="absolute inset-0 bg-grid-pattern opacity-30"></div>
+          
+          <div className="flex items-center gap-2 border border-green-200 hover:border-green-300 bg-white/80 backdrop-blur rounded-full w-max mx-auto px-4 py-2 mt-16 animate-fade-in-up">
+            <span>💰 Calculate your potential savings with Carify</span>
+            <button className="flex items-center gap-1 font-medium text-green-600">
+              <span>Get started</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+
+          <h1 className="text-4xl md:text-7xl font-bold max-w-[850px] text-center mx-auto mt-8 text-gray-900 animate-fade-in-up animation-delay-200">
+            ROI Calculator
+          </h1>
+
+          <p className="text-sm md:text-lg mx-auto max-w-2xl text-center mt-6 max-md:px-2 text-gray-600 animate-fade-in-up animation-delay-400">
+            See the financial impact Carify can create for your practice. Calculate potential savings from reduced staff time, fewer no-shows, and increased efficiency.
+          </p>
+          
+          <div className="mt-12 max-w-3xl mx-auto px-4">
+            <img 
+              src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=600&h=400&fit=crop" 
+              alt="Healthcare Financial Analytics" 
+              className="w-full rounded-2xl shadow-xl border border-white/20"
+            />
+          </div>
+        </section>
+
+        <section className="py-16 md:py-24 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <ParallaxSection className="text-center space-y-6 mb-16 max-w-4xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground leading-tight">
-                Calculate Your ROI
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                See the financial impact Carify can create for your practice
-              </p>
-            </ParallaxSection>
-            
-            <ParallaxSection speed={0.3} direction="down">
+            <ScrollCard>
               <ROICalculator />
-            </ParallaxSection>
+            </ScrollCard>
           </div>
         </section>
 
-        <Testimonials />
-
-        <section className="py-16 bg-muted">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <ParallaxSection speed={0.4}>
-              <CTASection
-                title="Contact Carify"
-                buttonText="Book a Demo"
-                testId="cta-contact"
-              />
-            </ParallaxSection>
-          </div>
-        </section>
-
-        <section id="book-demo" className="py-16 bg-background">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl">
-            <ParallaxSection className="text-center space-y-4 mb-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                Book Your Demo
-              </h2>
-              <p className="text-muted-foreground">
-                Fill out the form below and we'll get in touch to schedule your personalized demo.
-              </p>
-            </ParallaxSection>
-            
-            <ParallaxSection speed={0.2} direction="down">
-              <form onSubmit={handleDemoSubmit} className="space-y-6 bg-card p-8 rounded-lg shadow-lg" data-testid="form-demo">
-              <div className="space-y-2">
-                <Label htmlFor="email">Email Address</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="you@yourpractice.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  data-testid="input-email"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="company">Practice Name</Label>
-                <Input
-                  id="company"
-                  type="text"
-                  placeholder="Your Practice Name"
-                  value={company}
-                  onChange={(e) => setCompany(e.target.value)}
-                  required
-                  data-testid="input-company"
-                />
-              </div>
-              <Button type="submit" className="w-full" size="lg" data-testid="button-submit-demo">
-                Request Demo
-              </Button>
-            </form>
-            </ParallaxSection>
-          </div>
-        </section>
+        <ScrollCard delay={200}>
+          <Testimonials />
+        </ScrollCard>
       </main>
       
-      <Footer />
+      <Footer
+        logo={<Calculator className="h-8 w-8 text-blue-600" />}
+        brandName="Carify Health"
+        socialLinks={[
+          {
+            icon: <Phone className="h-5 w-5" />,
+            href: "tel:+1-555-0123",
+            label: "Call Us"
+          }
+        ]}
+        mainLinks={[
+          { href: "/", label: "Home" },
+          { href: "/why-carify", label: "Why Carify" },
+          { href: "/use-cases", label: "Use Cases" },
+          { href: "/roi-calculator", label: "ROI Calculator" }
+        ]}
+        legalLinks={[
+          { href: "/privacy", label: "Privacy" },
+          { href: "/terms", label: "Terms" }
+        ]}
+        copyright={{
+          text: "© 2024 Carify Health",
+          license: "Calculate your savings today"
+        }}
+      />
     </div>
   );
 }

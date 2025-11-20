@@ -7,6 +7,8 @@ import { Suspense, lazy } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { LoadingPage } from "@/components/LoadingSpinner";
 import { ErrorBoundary } from "react-error-boundary";
+import { DemoModalProvider, useDemoModal } from "@/hooks/use-demo-modal";
+import { DemoFormModal } from "@/components/ui/demo-form-modal";
 
 // Lazy load pages for better performance with error handling
 const HomePage = lazy(() => import("@/pages/home").catch(() => ({ default: () => <div>Error loading Home page</div> })));
@@ -55,52 +57,59 @@ function PageTransition({ children }: { children: React.ReactNode }) {
 }
 
 function Router() {
+  const { isOpen, closeModal } = useDemoModal();
+  
   return (
-    <AnimatePresence mode="wait">
-      <Switch>
-        <Route path="/">
-          <PageTransition>
-            <HomePage />
-          </PageTransition>
-        </Route>
-        <Route path="/roi-calculator">
-          <PageTransition>
-            <ROICalculatorPage />
-          </PageTransition>
-        </Route>
-        <Route path="/why-carify">
-          <PageTransition>
-            <WhyCarifyPage />
-          </PageTransition>
-        </Route>
-        <Route path="/use-cases">
-          <PageTransition>
-            <UseCasesPage />
-          </PageTransition>
-        </Route>
-        <Route>
-          <PageTransition>
-            <NotFound />
-          </PageTransition>
-        </Route>
-      </Switch>
-    </AnimatePresence>
+    <>
+      <AnimatePresence mode="wait">
+        <Switch>
+          <Route path="/">
+            <PageTransition>
+              <HomePage />
+            </PageTransition>
+          </Route>
+          <Route path="/roi-calculator">
+            <PageTransition>
+              <ROICalculatorPage />
+            </PageTransition>
+          </Route>
+          <Route path="/why-carify">
+            <PageTransition>
+              <WhyCarifyPage />
+            </PageTransition>
+          </Route>
+          <Route path="/use-cases">
+            <PageTransition>
+              <UseCasesPage />
+            </PageTransition>
+          </Route>
+          <Route>
+            <PageTransition>
+              <NotFound />
+            </PageTransition>
+          </Route>
+        </Switch>
+      </AnimatePresence>
+      <DemoFormModal open={isOpen} onOpenChange={closeModal} />
+    </>
   );
 }
 
 function App() {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          <div className="scrollbar-modern">
-            <Suspense fallback={<LoadingPage />}>
-              <Router />
-            </Suspense>
-            <Toaster />
-          </div>
-        </TooltipProvider>
-      </QueryClientProvider>
+      <DemoModalProvider>
+        <QueryClientProvider client={queryClient}>
+          <TooltipProvider>
+            <div className="scrollbar-modern">
+              <Suspense fallback={<LoadingPage />}>
+                <Router />
+              </Suspense>
+              <Toaster />
+            </div>
+          </TooltipProvider>
+        </QueryClientProvider>
+      </DemoModalProvider>
     </ErrorBoundary>
   );
 }

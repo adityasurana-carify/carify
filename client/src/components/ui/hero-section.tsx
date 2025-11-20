@@ -1,109 +1,54 @@
 'use client';
 
 import React from 'react';
-import { Shield, Clock, Users, CheckCircle } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { useDemoModal } from '@/hooks/use-demo-modal';
 
 export default function HeroSection() {
-  const [menuOpen, setMenuOpen] = React.useState(false);
-  const menuRef = React.useRef<HTMLDivElement | null>(null);
-
-  // Close on ESC & click outside (mobile overlay)
-  React.useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') setMenuOpen(false);
-    }
-    function onClickOutside(e: MouseEvent) {
-      if (!menuRef.current) return;
-      if (menuRef.current.contains(e.target as Node)) return;
-      setMenuOpen(false);
-    }
-
-    if (menuOpen) {
-      document.addEventListener('keydown', onKey);
-      document.addEventListener('click', onClickOutside);
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-
-    return () => {
-      document.removeEventListener('keydown', onKey);
-      document.removeEventListener('click', onClickOutside);
-      document.body.style.overflow = '';
-    };
-  }, [menuOpen]);
-
+  const { openModal } = useDemoModal();
+  
   return (
     <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-        * { font-family: 'Poppins', sans-serif; }
-      `}</style>
+      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 w-full text-sm pb-44 pt-20 relative overflow-hidden">
+        {/* Grid background pattern */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-30"></div>
 
-      <section className="bg-[url('https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/hero/gridBackground.png')] w-full bg-no-repeat bg-cover bg-center text-sm py-20 md:py-32">
-
-
-        <div className="flex items-center gap-2 border border-slate-300 hover:border-slate-400/70 rounded-full w-max mx-auto px-4 py-2 mt-8">
-          <Shield className="w-4 h-4 text-blue-600" />
-          <span>HIPAA Compliant & Secure</span>
-        </div>
-
-        <h1 className="text-4xl md:text-7xl font-medium max-w-[850px] text-center mx-auto mt-8">
-          Meet Jenny — Your AI Insurance Coordinator
-        </h1>
-
-        <p className="text-sm md:text-base mx-auto max-w-2xl text-center mt-6 max-md:px-2">
-          Jenny handles benefits verification, copay checks, deductibles, eligibility, and more by calling insurance companies for you — so your team stays focused on patient care, not hold lines.
-        </p>
-
-        <div className="mx-auto w-full flex items-center justify-center gap-3 mt-8">
-          <button className="flex items-center gap-2 border border-slate-300 hover:bg-slate-200/30 rounded-full px-6 py-3">
-            <span>Book a Demo</span>
-            <span className="text-xs text-gray-500">10–15 minutes</span>
+        <div className="flex items-center gap-2 border border-blue-200 hover:border-blue-300 bg-white/80 backdrop-blur rounded-full w-max mx-auto px-4 py-2 mt-40 md:mt-32 animate-fade-in-up">
+          <span>🎉 New: AI Insurance Coordinator Jenny is live</span>
+          <button className="flex items-center gap-1 font-medium text-blue-600">
+            <span>Learn more</span>
+            <ArrowRight className="w-4 h-4" />
           </button>
         </div>
 
-        {/* Key Stats */}
-        <div className="flex flex-wrap items-center justify-center gap-8 mt-16 max-w-4xl mx-auto px-4">
-          <div className="flex flex-col items-center text-center">
-            <div className="flex items-center gap-2 mb-2">
-              <Clock className="w-5 h-5 text-blue-600" />
-              <span className="text-2xl font-bold">10–15 minutes</span>
-            </div>
-            <span className="text-sm text-gray-600">saved per patient</span>
-          </div>
-          
-          <div className="flex flex-col items-center text-center">
-            <div className="flex items-center gap-2 mb-2">
-              <CheckCircle className="w-5 h-5 text-blue-600" />
-              <span className="text-2xl font-bold">24/7</span>
-            </div>
-            <span className="text-sm text-gray-600">automated verification</span>
-          </div>
-          
-          <div className="flex flex-col items-center text-center">
-            <div className="flex items-center gap-2 mb-2">
-              <Shield className="w-5 h-5 text-blue-600" />
-              <span className="text-2xl font-bold">100%</span>
-            </div>
-            <span className="text-sm text-gray-600">HIPAA-ready architecture</span>
-          </div>
-        </div>
+        <h1 className="text-4xl md:text-7xl font-bold max-w-[850px] text-center mx-auto mt-8 text-gray-900 animate-fade-in-up animation-delay-200">
+          Transform Healthcare with AI Agents
+        </h1>
 
-        {/* Feature badges */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mt-12 max-w-2xl mx-auto px-4">
-          <div className="flex items-center gap-2 bg-white/80 backdrop-blur rounded-full px-4 py-2 border border-slate-200">
-            <Shield className="w-4 h-4 text-blue-600" />
-            <span className="text-sm font-medium">HIPAA Compliant</span>
-          </div>
-          <div className="flex items-center gap-2 bg-white/80 backdrop-blur rounded-full px-4 py-2 border border-slate-200">
-            <Clock className="w-4 h-4 text-blue-600" />
-            <span className="text-sm font-medium">24/7</span>
-          </div>
-          <div className="flex items-center gap-2 bg-white/80 backdrop-blur rounded-full px-4 py-2 border border-slate-200">
-            <Users className="w-4 h-4 text-blue-600" />
-            <span className="text-sm font-medium">Works With Any Clinic Size</span>
-          </div>
+        <p className="text-sm md:text-lg mx-auto max-w-2xl text-center mt-6 max-md:px-2 text-gray-600 animate-fade-in-up animation-delay-400">
+          Handle 75% of calls, save 2+ hours daily per staff, and reduce no-shows to less than 5%. 
+          Experience the future of healthcare operations with Jenny, your AI coordinator.
+        </p>
+
+        <div className="mx-auto w-full flex items-center justify-center gap-3 mt-8 animate-fade-in-up animation-delay-600">
+          <button 
+            onClick={openModal}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-medium transition-all hover:scale-105 shadow-lg"
+          >
+            Book Free Demo
+          </button>
+          <button className="flex items-center gap-2 border border-gray-300 hover:bg-gray-50 rounded-full px-8 py-4 transition-all hover:scale-105">
+            <span>Watch Video</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+        
+        <div className="mt-16 max-w-4xl mx-auto px-4">
+          <img 
+            src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=500&fit=crop" 
+            alt="Healthcare AI Dashboard" 
+            className="w-full rounded-2xl shadow-2xl border border-white/20"
+          />
         </div>
       </section>
     </>

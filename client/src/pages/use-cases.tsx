@@ -1,10 +1,24 @@
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import ParallaxSection from "@/components/ParallaxSection";
+import { Footer } from "@/components/ui/footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Shield, Users, FileCheck, CreditCard, UserCheck, Phone, Calendar, Heart } from "lucide-react";
+import { Shield, Users, FileCheck, CreditCard, UserCheck, Phone, Calendar, Heart, ArrowRight } from "lucide-react";
+import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section-with-hover-effects";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+
+function ScrollCard({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
+  const { ref, isVisible } = useScrollAnimation();
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {children}
+    </div>
+  );
+}
 
 const payerUseCases = [
   {
@@ -102,23 +116,45 @@ export default function UseCasesPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-primary/5 to-secondary/5">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <ParallaxSection className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-              Use Cases
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-              Discover how Jenny transforms healthcare operations across different scenarios
-            </p>
-          </ParallaxSection>
+      <section className="bg-gradient-to-br from-purple-50 via-white to-blue-50 w-full text-sm pb-20 pt-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        
+        <div className="flex items-center gap-2 border border-purple-200 hover:border-purple-300 bg-white/80 backdrop-blur rounded-full w-max mx-auto px-4 py-2 mt-16 animate-fade-in-up">
+          <span>🎯 Explore Jenny's capabilities across healthcare workflows</span>
+          <button className="flex items-center gap-1 font-medium text-purple-600">
+            <span>Learn more</span>
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+
+        <h1 className="text-4xl md:text-7xl font-bold max-w-[850px] text-center mx-auto mt-8 text-gray-900 animate-fade-in-up animation-delay-200">
+          Use Cases
+        </h1>
+
+        <p className="text-sm md:text-lg mx-auto max-w-2xl text-center mt-6 max-md:px-2 text-gray-600 animate-fade-in-up animation-delay-400">
+          Discover how Jenny transforms healthcare operations across different scenarios. From insurance verification to patient engagement.
+        </p>
+        
+        <div className="mt-12 max-w-4xl mx-auto px-4">
+          <img 
+            src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=500&fit=crop" 
+            alt="Healthcare Team Collaboration" 
+            className="w-full rounded-2xl shadow-xl border border-white/20"
+          />
         </div>
       </section>
 
       {/* Payer Section */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <ParallaxSection className="text-center mb-12">
+          <ScrollCard className="text-center mb-12">
+            <div className="w-20 h-20 mx-auto mb-6 rounded-2xl overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=80&h=80&fit=crop" 
+                alt="Insurance Management" 
+                className="w-full h-full object-cover"
+              />
+            </div>
             <Badge variant="secondary" className="mb-4 text-lg px-4 py-2">
               <Shield className="h-5 w-5 mr-2" />
               Payer
@@ -129,45 +165,54 @@ export default function UseCasesPage() {
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Streamline insurance verification, prior authorizations, and claims processing with AI-powered automation
             </p>
-          </ParallaxSection>
+          </ScrollCard>
           
-          <ParallaxSection className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" speed={0.3} direction="down">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {payerUseCases.map((useCase, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-3 bg-primary/10 rounded-lg">
-                      <useCase.icon className="h-8 w-8 text-primary" />
+              <ScrollCard key={index} delay={index * 150}>
+                <Card className="hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20 h-full">
+                  <CardHeader>
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="p-3 bg-primary/10 rounded-lg">
+                        <useCase.icon className="h-8 w-8 text-primary" />
+                      </div>
+                      <CardTitle className="text-xl">{useCase.title}</CardTitle>
                     </div>
-                    <CardTitle className="text-xl">{useCase.title}</CardTitle>
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {useCase.description}
-                  </p>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 mb-6">
-                    {useCase.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button variant="outline" className="w-full" onClick={scrollToDemo}>
-                    Demo Call
-                  </Button>
-                </CardContent>
-              </Card>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {useCase.description}
+                    </p>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 mb-6">
+                      {useCase.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
+                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3 flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    <Button variant="outline" className="w-full" onClick={scrollToDemo}>
+                      Demo Call
+                    </Button>
+                  </CardContent>
+                </Card>
+              </ScrollCard>
             ))}
-          </ParallaxSection>
+          </div>
         </div>
       </section>
 
       {/* Patient Section */}
       <section className="py-16 md:py-24 bg-muted/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <ParallaxSection className="text-center mb-12">
+          <ScrollCard className="text-center mb-12">
+            <div className="w-20 h-20 mx-auto mb-6 rounded-2xl overflow-hidden">
+              <img 
+                src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=80&h=80&fit=crop" 
+                alt="Patient Care" 
+                className="w-full h-full object-cover"
+              />
+            </div>
             <Badge variant="secondary" className="mb-4 text-lg px-4 py-2">
               <Users className="h-5 w-5 mr-2" />
               Patient
@@ -178,45 +223,64 @@ export default function UseCasesPage() {
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Enhance patient satisfaction with automated intake, personalized outreach, and comprehensive care support
             </p>
-          </ParallaxSection>
+          </ScrollCard>
           
-          <ParallaxSection className="grid md:grid-cols-2 gap-8" speed={0.4}>
+          <div className="grid md:grid-cols-2 gap-8">
             {patientUseCases.map((useCase, index) => (
-              <Card key={index} className="hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-3 bg-primary/10 rounded-lg">
-                      <useCase.icon className="h-8 w-8 text-primary" />
+              <ScrollCard key={index} delay={index * 200}>
+                <Card className="hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20 h-full">
+                  <CardHeader>
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="p-3 bg-primary/10 rounded-lg">
+                        <useCase.icon className="h-8 w-8 text-primary" />
+                      </div>
+                      <CardTitle className="text-xl">{useCase.title}</CardTitle>
                     </div>
-                    <CardTitle className="text-xl">{useCase.title}</CardTitle>
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {useCase.description}
-                  </p>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 mb-6">
-                    {useCase.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button variant="outline" className="w-full" onClick={scrollToDemo}>
-                    Demo Call
-                  </Button>
-                </CardContent>
-              </Card>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {useCase.description}
+                    </p>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 mb-6">
+                      {useCase.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center text-sm text-muted-foreground">
+                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3 flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    <Button variant="outline" className="w-full" onClick={scrollToDemo}>
+                      Demo Call
+                    </Button>
+                  </CardContent>
+                </Card>
+              </ScrollCard>
             ))}
-          </ParallaxSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Platform Features */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollCard className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Platform Capabilities
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Comprehensive features designed for modern healthcare operations
+            </p>
+          </ScrollCard>
+          <ScrollCard delay={200}>
+            <FeaturesSectionWithHoverEffects />
+          </ScrollCard>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-16 md:py-24 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <ParallaxSection className="text-center" speed={0.5} direction="down">
+          <ScrollCard className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Ready to Transform Your Healthcare Operations?
             </h2>
@@ -226,11 +290,35 @@ export default function UseCasesPage() {
             <Button size="lg" variant="secondary" onClick={scrollToDemo} className="text-lg px-8 py-3">
               Schedule Your Demo Today
             </Button>
-          </ParallaxSection>
+          </ScrollCard>
         </div>
       </section>
 
-      <Footer />
+      <Footer
+        logo={<Users className="h-8 w-8 text-blue-600" />}
+        brandName="Carify Health"
+        socialLinks={[
+          {
+            icon: <Phone className="h-5 w-5" />,
+            href: "tel:+1-555-0123",
+            label: "Call Us"
+          }
+        ]}
+        mainLinks={[
+          { href: "/", label: "Home" },
+          { href: "/why-carify", label: "Why Carify" },
+          { href: "/use-cases", label: "Use Cases" },
+          { href: "/roi-calculator", label: "ROI Calculator" }
+        ]}
+        legalLinks={[
+          { href: "/privacy", label: "Privacy" },
+          { href: "/terms", label: "Terms" }
+        ]}
+        copyright={{
+          text: "© 2024 Carify Health",
+          license: "Empowering healthcare teams"
+        }}
+      />
     </div>
   );
 }

@@ -3,17 +3,16 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useDemoModal } from "@/hooks/use-demo-modal";
 import logo from "@assets/image_1763376846289.png";
 
 export default function Header() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { openModal } = useDemoModal();
 
-  const scrollToDemo = () => {
-    const demoSection = document.getElementById('book-demo');
-    if (demoSection) {
-      demoSection.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleBookDemo = () => {
+    openModal();
     setMobileMenuOpen(false);
   };
 
@@ -71,7 +70,7 @@ export default function Header() {
               whileTap={{ scale: 0.95 }}
             >
               <Button 
-                onClick={scrollToDemo} 
+                onClick={handleBookDemo} 
                 data-testid="button-book-demo"
                 className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
               >
@@ -145,7 +144,7 @@ export default function Header() {
               >
                 <Button 
                   className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300" 
-                  onClick={scrollToDemo} 
+                  onClick={handleBookDemo} 
                   data-testid="button-mobile-demo"
                 >
                   <Sparkles className="w-4 h-4 mr-2" />

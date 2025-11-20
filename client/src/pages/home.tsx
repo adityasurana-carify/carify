@@ -1,12 +1,14 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/ui/hero-section";
-import Footer from "@/components/Footer";
+import { Footer } from "@/components/ui/footer";
 import ParallaxSection from "@/components/ParallaxSection";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Clock, Shield, CheckCircle, Phone, FileText, Users, Star, ArrowRight, Sparkles, Zap, Target } from "lucide-react";
 import { TestimonialsDemo } from "@/components/ui/testimonials-demo";
+import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section-with-hover-effects";
+import RuixenBentoCards from "@/components/ui/ruixen-bento-cards";
 import { motion } from "framer-motion";
 
 export default function HomePage() {
@@ -93,6 +95,28 @@ export default function HomePage() {
                 );
               })}
             </ParallaxSection>
+          </div>
+        </section>
+
+        {/* Platform Features */}
+        <section className="py-20 bg-white relative overflow-hidden">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <ParallaxSection className="text-center mb-16">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent mb-4">
+                  Why Healthcare Teams Choose Carify
+                </h2>
+                <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                  Built specifically for healthcare with the features that matter most.
+                </p>
+              </motion.div>
+            </ParallaxSection>
+            <FeaturesSectionWithHoverEffects />
           </div>
         </section>
 
@@ -445,6 +469,9 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Carify Features Bento Grid */}
+        <RuixenBentoCards />
+
         {/* Testimonials */}
         <TestimonialsDemo />
 
@@ -499,7 +526,31 @@ export default function HomePage() {
         </section>
       </main>
       
-      <Footer />
+      <Footer
+        logo={<div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">C</div>}
+        brandName="Carify Health"
+        socialLinks={[
+          {
+            icon: <Phone className="h-5 w-5" />,
+            href: "tel:+1-555-0123",
+            label: "Call Us"
+          }
+        ]}
+        mainLinks={[
+          { href: "/", label: "Home" },
+          { href: "/why-carify", label: "Why Carify" },
+          { href: "/use-cases", label: "Use Cases" },
+          { href: "/roi-calculator", label: "ROI Calculator" }
+        ]}
+        legalLinks={[
+          { href: "/privacy", label: "Privacy" },
+          { href: "/terms", label: "Terms" }
+        ]}
+        copyright={{
+          text: "© 2024 Carify Health",
+          license: "All rights reserved"
+        }}
+      />
     </div>
   );
 }

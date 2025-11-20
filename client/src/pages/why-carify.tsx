@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import HeroSection from "@/components/ui/hero-section";
+import { Footer } from "@/components/ui/footer";
 import StatsCard from "@/components/StatsCard";
 import { GlowCard } from "@/components/ui/spotlight-card";
 import HeroValueProp from "@/components/HeroValueProp";
@@ -13,9 +14,24 @@ import InteractiveFeatures from "@/components/InteractiveFeatures";
 import CarifyFeatures from "@/components/CarifyFeatures";
 import ExpandedFAQ from "@/components/ExpandedFAQ";
 import Testimonials from "@/components/Testimonials";
+import CaseStudies from "@/components/ui/case-studies";
 import ParallaxSection from "@/components/ParallaxSection";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { Phone, TrendingUp, Clock, UserCheck, Shield, Zap, Globe } from "lucide-react";
-import heroImage from "@assets/generated_images/Modern_healthcare_team_collaboration_bab887f8.png";
+
+function ScrollCard({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+  const { ref, isVisible } = useScrollAnimation();
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {children}
+    </div>
+  );
+}
+
 
 export default function WhyCarifyPage() {
   return (
@@ -23,23 +39,7 @@ export default function WhyCarifyPage() {
       <Header />
       
       <main className="flex-1">
-        <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center">
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url(${heroImage})` }}
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/60" />
-          </div>
-          
-          <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left max-w-4xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6" data-testid="text-why-hero-title">
-              Why Carify Health
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl" data-testid="text-why-hero-subtitle">
-              Carify Health transforms your practice by giving staff more time and patients better access. With seamless workflows and natural interactions, our AI Agents deliver measurable results every day.
-            </p>
-          </div>
-        </section>
+        <HeroSection />
 
         <section className="py-16 md:py-24 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,7 +53,7 @@ export default function WhyCarifyPage() {
             </ParallaxSection>
             
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              <ParallaxSection speed={0.2}>
+              <ScrollCard delay={0}>
                 <StatsCard
                 icon={Phone}
                 stat="75%"
@@ -61,8 +61,8 @@ export default function WhyCarifyPage() {
                 testId="card-stat-calls"
                 glowColor="blue"
               />
-              </ParallaxSection>
-              <ParallaxSection speed={0.3} direction="down">
+              </ScrollCard>
+              <ScrollCard delay={200}>
                 <StatsCard
                 icon={TrendingUp}
                 stat="3x"
@@ -70,8 +70,8 @@ export default function WhyCarifyPage() {
                 testId="card-stat-encounters"
                 glowColor="green"
               />
-              </ParallaxSection>
-              <ParallaxSection speed={0.4}>
+              </ScrollCard>
+              <ScrollCard delay={400}>
                 <StatsCard
                 icon={Clock}
                 stat="2+ hrs"
@@ -79,8 +79,8 @@ export default function WhyCarifyPage() {
                 testId="card-stat-time"
                 glowColor="purple"
               />
-              </ParallaxSection>
-              <ParallaxSection speed={0.5} direction="down">
+              </ScrollCard>
+              <ScrollCard delay={600}>
                 <StatsCard
                 icon={UserCheck}
                 stat="<5%"
@@ -88,58 +88,103 @@ export default function WhyCarifyPage() {
                 testId="card-stat-noshows"
                 glowColor="orange"
               />
-              </ParallaxSection>
+              </ScrollCard>
             </div>
           </div>
         </section>
 
-        <HeroValueProp />
+        <ScrollCard>
+          <HeroValueProp />
+        </ScrollCard>
 
-        <AIWorkflow />
+        <ScrollCard delay={100}>
+          <AIWorkflow />
+        </ScrollCard>
 
-        <HowItWorks />
+        <ScrollCard delay={200}>
+          <HowItWorks />
+        </ScrollCard>
 
-        <WhyItMatters />
+        <ScrollCard delay={100}>
+          <WhyItMatters />
+        </ScrollCard>
 
-        <ProductValues />
+        <ScrollCard delay={200}>
+          <ProductValues />
+        </ScrollCard>
 
-        <UseCases />
+        <ScrollCard delay={100}>
+          <UseCases />
+        </ScrollCard>
 
-        <SocialProof />
+        <ScrollCard delay={200}>
+          <SocialProof />
+        </ScrollCard>
 
-        <CarifyFeatures />
+        <ScrollCard delay={100}>
+          <CarifyFeatures />
+        </ScrollCard>
 
-        <Testimonials />
+        <ScrollCard delay={200}>
+          <Testimonials />
+        </ScrollCard>
 
-        <InteractiveFeatures />
+        <ScrollCard delay={100}>
+          <CaseStudies />
+        </ScrollCard>
+
+        <ScrollCard delay={200}>
+          <InteractiveFeatures />
+        </ScrollCard>
 
         <section className="py-16 md:py-24 bg-muted">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <ParallaxSection className="text-center mb-12">
+              <div className="w-20 h-20 mx-auto mb-6 rounded-2xl overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=80&h=80&fit=crop" 
+                  alt="Healthcare Integration" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Seamless Integrations
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Connect with your existing healthcare systems effortlessly
+              </p>
+            </ParallaxSection>
+            
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                  Integrations
-                </h2>
+              <ScrollCard delay={100} className="space-y-6">
+                <div className="w-16 h-16 rounded-xl overflow-hidden mb-4">
+                  <img 
+                    src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=64&h=64&fit=crop" 
+                    alt="Healthcare Technology" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <h3 className="text-xl md:text-2xl font-semibold text-primary">
                   EHR and IVR integrations
                 </h3>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   We are committed to making adoption effortless by deeply integrating with your existing systems, so your staff never has to learn another platform.
                 </p>
-              </div>
+              </ScrollCard>
               <div className="grid grid-cols-2 gap-6">
                 {[Zap, Shield, Globe, TrendingUp].map((Icon, index) => {
                   const colors = ['blue', 'purple', 'green', 'orange'] as const;
                   return (
-                    <GlowCard
-                      key={index}
-                      customSize
-                      glowColor={colors[index]}
-                      className="p-8 text-center hover-elevate transition-transform h-32 w-full"
-                      data-testid={`card-integration-${index}`}
-                    >
-                      <Icon className="h-12 w-12 text-primary mx-auto" />
-                    </GlowCard>
+                    <ScrollCard key={index} delay={index * 150}>
+                      <GlowCard
+                        customSize
+                        glowColor={colors[index]}
+                        className="p-8 text-center hover-elevate transition-all duration-300 hover:scale-105 h-32 w-full"
+                        data-testid={`card-integration-${index}`}
+                      >
+                        <Icon className="h-12 w-12 text-primary mx-auto animate-pulse" />
+                      </GlowCard>
+                    </ScrollCard>
                   );
                 })}
               </div>
@@ -149,9 +194,9 @@ export default function WhyCarifyPage() {
 
         <section className="py-16 md:py-24 bg-primary/5">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-            <div className="text-center space-y-6">
+            <ScrollCard className="text-center space-y-6">
               <div className="flex justify-center mb-6">
-                <div className="p-4 bg-primary/10 rounded-lg">
+                <div className="p-4 bg-primary/10 rounded-lg animate-bounce">
                   <Shield className="h-12 w-12 text-primary" />
                 </div>
               </div>
@@ -161,14 +206,40 @@ export default function WhyCarifyPage() {
               <p className="text-lg text-muted-foreground leading-relaxed">
                 Our proprietary language model is built on thousands of real-life interactions, clicks, actions, and repetitive tasks performed by staff, surpassing the performance of current state-of-the-art LLMs. We work with the same vendors who power the safety and compliance stack for the world's best generative AI companies. All our workflows are co-built by best physicians and staff managers across the country, making them extremely reliable.
               </p>
-            </div>
+            </ScrollCard>
           </div>
         </section>
 
-        <ExpandedFAQ />
+        <ScrollCard>
+          <ExpandedFAQ />
+        </ScrollCard>
       </main>
       
-      <Footer />
+      <Footer
+        logo={<Shield className="h-8 w-8 text-blue-600" />}
+        brandName="Carify Health"
+        socialLinks={[
+          {
+            icon: <Phone className="h-5 w-5" />,
+            href: "tel:+1-555-0123",
+            label: "Call Us"
+          }
+        ]}
+        mainLinks={[
+          { href: "/", label: "Home" },
+          { href: "/why-carify", label: "Why Carify" },
+          { href: "/use-cases", label: "Use Cases" },
+          { href: "/roi-calculator", label: "ROI Calculator" }
+        ]}
+        legalLinks={[
+          { href: "/privacy", label: "Privacy" },
+          { href: "/terms", label: "Terms" }
+        ]}
+        copyright={{
+          text: "© 2024 Carify Health",
+          license: "Transforming healthcare with AI"
+        }}
+      />
     </div>
   );
 }
