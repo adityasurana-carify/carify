@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Shield, Users, FileCheck, CreditCard, UserCheck, Phone, Calendar, Heart, ArrowRight } from "lucide-react";
 import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section-with-hover-effects";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import Featured_05 from "@/components/ui/globe-feature-section";
+import { TestimonialsDemo } from "@/components/ui/testimonials-demo";
 
 function ScrollCard({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
   const { ref, isVisible } = useScrollAnimation();
@@ -293,6 +295,17 @@ export default function UseCasesPage() {
           </ScrollCard>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <section className="py-16 md:py-24 bg-muted/30">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollCard>
+            <TestimonialsDemo />
+          </ScrollCard>
+        </div>
+      </section>
+
+      <Featured_05 />
 
       <Footer
         logo={<Users className="h-8 w-8 text-blue-600" />}

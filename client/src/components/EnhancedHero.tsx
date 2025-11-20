@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
-import heroImage from "@assets/generated_images/Healthcare_professionals_using_technology_cfe0b0c4.png";
+import heroImage from "/Healthcare_professionals_using_technology_cfe0b0c4.png";
 
 export default function EnhancedHero() {
   const scrollToDemo = () => {
@@ -79,10 +80,15 @@ export default function EnhancedHero() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Button size="lg" onClick={scrollToDemo} className="group" data-testid="button-hero-demo">
-              Book a Demo
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <HoverBorderGradient
+              as="button"
+              onClick={scrollToDemo}
+              className="dark:bg-primary bg-primary text-primary-foreground dark:text-primary-foreground flex items-center space-x-2 px-6 py-3 text-lg font-semibold group"
+              data-testid="button-hero-demo"
+            >
+              <span>Book a Demo</span>
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </HoverBorderGradient>
             <Button size="lg" variant="outline" onClick={() => {
               const calculatorSection = document.querySelector('[data-testid="card-roi-calculator"]');
               if (calculatorSection) {

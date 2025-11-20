@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import ParallaxSection from "@/components/ParallaxSection";
 import { Link } from "wouter";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Sparkles, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Sparkles, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Footer() {
@@ -87,6 +87,16 @@ export default function Footer() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Twitter className="h-5 w-5" />
+              </motion.a>
+              <motion.a 
+                href="https://instagram.com/carifyhealth" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center text-blue-100 hover:text-white hover:bg-white/20 transition-all duration-300"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Instagram className="h-5 w-5" />
               </motion.a>
             </div>
           </motion.div>

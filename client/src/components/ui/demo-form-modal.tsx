@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
+import { HoverBorderGradient } from '@/components/ui/hover-border-gradient';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { X } from 'lucide-react';
@@ -111,9 +112,12 @@ export function DemoFormModal({ open, onOpenChange }: DemoFormModalProps) {
             >
               Cancel
             </Button>
-            <Button type="submit" className="flex-1">
+            <HoverBorderGradient
+              as="button"
+              className="dark:bg-primary bg-primary text-primary-foreground dark:text-primary-foreground px-4 py-2 font-semibold flex-1"
+            >
               Submit Request
-            </Button>
+            </HoverBorderGradient>
           </div>
         </form>
       </DialogContent>

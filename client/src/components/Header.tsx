@@ -4,7 +4,7 @@ import { Menu, X, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useDemoModal } from "@/hooks/use-demo-modal";
-import logo from "@assets/image_1763376846289.png";
+import logo from "/image_1763376846289.png";
 
 export default function Header() {
   const [location] = useLocation();

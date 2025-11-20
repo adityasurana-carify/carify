@@ -14,17 +14,17 @@
 
 **For Development (macOS/Linux):**
 ```bash
-./launch.sh
+./scripts/launch.sh
 ```
 
 **For Development (Windows):**
 ```cmd
-launch.bat
+./scripts/launch.bat
 ```
 
 **For Production (macOS/Linux):**
 ```bash
-./launch-production.sh
+./scripts/launch-production.sh
 ```
 
 #### Option 2: Manual Launch
@@ -68,21 +68,35 @@ The following critical issues have been resolved:
 ```
 carify/
 ├── client/                 # Frontend React application
-│   ├── src/
-│   │   ├── components/     # Reusable UI components
-│   │   ├── pages/          # Application pages
-│   │   ├── lib/            # Utility libraries
-│   │   └── hooks/          # Custom React hooks
-│   └── index.html
-├── server/                 # Backend Express server
-│   ├── index.ts           # Main server file
-│   ├── routes.ts          # API routes
-│   ├── storage.ts         # Data storage layer
-│   └── vite.ts            # Vite development server setup
-├── shared/                # Shared types and schemas
-├── launch.sh              # Development launch script (Unix)
-├── launch.bat             # Development launch script (Windows)
-├── launch-production.sh   # Production launch script
+│   ├── public/            # Static assets
+│   └── src/
+│       ├── components/    # Reusable UI components
+│       ├── pages/         # Application pages
+│       ├── hooks/         # Custom React hooks
+│       ├── utils/         # Utility functions
+│       ├── services/      # API service layer
+│       ├── types/         # TypeScript definitions
+│       └── constants/     # Application constants
+├── server/                # Backend Express server
+│   ├── index.ts          # Main server file
+│   ├── routes.ts         # API routes
+│   ├── storage.ts        # Data storage layer
+│   └── vite.ts           # Vite development setup
+├── shared/               # Shared types and schemas
+├── config/               # Configuration files
+│   ├── drizzle.config.ts # Database configuration
+│   ├── tailwind.config.ts # Styling configuration
+│   └── components.json   # UI component configuration
+├── scripts/              # Build and deployment scripts
+│   ├── launch.sh         # Development launch (Unix)
+│   ├── launch.bat        # Development launch (Windows)
+│   └── launch-production.sh # Production launch
+├── docs/                 # Documentation
+│   ├── ARCHITECTURE.md   # System architecture
+│   ├── API.md           # API documentation
+│   └── CHANGELOG.md     # Version history
+├── tests/                # Test files
+├── public/               # Static assets
 └── package.json
 ```
 
@@ -93,6 +107,8 @@ carify/
 - `npm start` - Start production server
 - `npm run check` - TypeScript type checking
 - `npm run db:push` - Push database schema changes
+- `npm run launch:dev` - Launch development environment
+- `npm run launch:prod` - Launch production environment
 
 ## 🌟 Features
 

@@ -17,14 +17,15 @@ import Testimonials from "@/components/Testimonials";
 import CaseStudies from "@/components/ui/case-studies";
 import ParallaxSection from "@/components/ParallaxSection";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import Featured_05 from "@/components/ui/globe-feature-section";
 import { Phone, TrendingUp, Clock, UserCheck, Shield, Zap, Globe } from "lucide-react";
 
-function ScrollCard({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+function ScrollCard({ children, delay = 0, className = '' }: { children: React.ReactNode; delay?: number; className?: string }) {
   const { ref, isVisible } = useScrollAnimation();
   return (
     <div
       ref={ref}
-      className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+      className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'} ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
@@ -214,6 +215,8 @@ export default function WhyCarifyPage() {
           <ExpandedFAQ />
         </ScrollCard>
       </main>
+      
+      <Featured_05 />
       
       <Footer
         logo={<Shield className="h-8 w-8 text-blue-600" />}

@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 
 interface CTASectionProps {
   title: string;
@@ -19,9 +20,14 @@ export default function CTASection({ title, buttonText, testId }: CTASectionProp
       <h2 className="text-3xl md:text-4xl font-bold text-foreground max-w-3xl mx-auto">
         {title}
       </h2>
-      <Button size="lg" onClick={scrollToDemo} data-testid={`${testId}-button`}>
+      <HoverBorderGradient
+        as="button"
+        onClick={scrollToDemo}
+        className="dark:bg-primary bg-primary text-primary-foreground dark:text-primary-foreground px-6 py-3 text-lg font-semibold"
+        data-testid={`${testId}-button`}
+      >
         {buttonText}
-      </Button>
+      </HoverBorderGradient>
     </section>
   );
 }

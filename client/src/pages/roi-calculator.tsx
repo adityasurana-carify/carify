@@ -4,6 +4,8 @@ import { Phone, Calculator, ArrowRight } from "lucide-react";
 import ROICalculator from "@/components/ROICalculator";
 import Testimonials from "@/components/Testimonials";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { useDemoModal } from "@/hooks/use-demo-modal";
+import Featured_05 from "@/components/ui/globe-feature-section";
 
 function ScrollCard({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const { ref, isVisible } = useScrollAnimation();
@@ -19,6 +21,7 @@ function ScrollCard({ children, delay = 0 }: { children: React.ReactNode; delay?
 }
 
 export default function ROICalculatorPage() {
+  const { openModal } = useDemoModal();
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -30,7 +33,7 @@ export default function ROICalculatorPage() {
           
           <div className="flex items-center gap-2 border border-green-200 hover:border-green-300 bg-white/80 backdrop-blur rounded-full w-max mx-auto px-4 py-2 mt-16 animate-fade-in-up">
             <span>💰 Calculate your potential savings with Carify</span>
-            <button className="flex items-center gap-1 font-medium text-green-600">
+            <button onClick={openModal} className="flex items-center gap-1 font-medium text-green-600 hover:text-green-700 transition-colors">
               <span>Get started</span>
               <ArrowRight className="w-4 h-4" />
             </button>
@@ -65,6 +68,8 @@ export default function ROICalculatorPage() {
           <Testimonials />
         </ScrollCard>
       </main>
+      
+      <Featured_05 />
       
       <Footer
         logo={<Calculator className="h-8 w-8 text-blue-600" />}

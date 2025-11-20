@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/utils/utils"
 import { GlowCard } from "./spotlight-card"
 
 const Card = React.forwardRef<

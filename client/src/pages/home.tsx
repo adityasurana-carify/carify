@@ -3,12 +3,14 @@ import HeroSection from "@/components/ui/hero-section";
 import { Footer } from "@/components/ui/footer";
 import ParallaxSection from "@/components/ParallaxSection";
 import { Button } from "@/components/ui/button";
+import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Clock, Shield, CheckCircle, Phone, FileText, Users, Star, ArrowRight, Sparkles, Zap, Target } from "lucide-react";
 import { TestimonialsDemo } from "@/components/ui/testimonials-demo";
 import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section-with-hover-effects";
 import RuixenBentoCards from "@/components/ui/ruixen-bento-cards";
+import Featured_05 from "@/components/ui/globe-feature-section";
 import { motion } from "framer-motion";
 
 export default function HomePage() {
@@ -501,9 +503,12 @@ export default function HomePage() {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-2 hover:bg-white/70 backdrop-blur-sm transition-all duration-300">
+                  <HoverBorderGradient
+                    as="button"
+                    className="dark:bg-primary bg-primary text-primary-foreground dark:text-primary-foreground px-8 py-4 text-lg font-semibold"
+                  >
                     Schedule a Demo Call
-                  </Button>
+                  </HoverBorderGradient>
                 </div>
                 
                 <div className="mt-8 flex items-center justify-center space-x-6 text-sm text-gray-500">
@@ -525,6 +530,8 @@ export default function HomePage() {
           </div>
         </section>
       </main>
+      
+      <Featured_05 />
       
       <Footer
         logo={<div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">C</div>}

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
+import { HoverBorderGradient } from '@/components/ui/hover-border-gradient';
 import { useDemoModal } from '@/hooks/use-demo-modal';
 
 export default function HeroSection() {
@@ -31,12 +32,13 @@ export default function HeroSection() {
         </p>
 
         <div className="mx-auto w-full flex items-center justify-center gap-3 mt-8 animate-fade-in-up animation-delay-600">
-          <button 
+          <HoverBorderGradient
+            as="button"
             onClick={openModal}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-medium transition-all hover:scale-105 shadow-lg"
+            className="dark:bg-blue-600 bg-blue-600 text-white dark:text-white px-8 py-4 font-medium"
           >
             Book Free Demo
-          </button>
+          </HoverBorderGradient>
           <button className="flex items-center gap-2 border border-gray-300 hover:bg-gray-50 rounded-full px-8 py-4 transition-all hover:scale-105">
             <span>Watch Video</span>
             <ArrowRight className="w-4 h-4" />

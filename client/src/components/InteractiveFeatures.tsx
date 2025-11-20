@@ -1,8 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import AnimatedSection from "./AnimatedSection";
-import dashboardImage from "@assets/generated_images/Healthcare_dashboard_interface_2e3152ad.png";
-import clinicImage from "@assets/generated_images/Modern_clinic_reception_1d7ea30c.png";
+import dashboardImage from "/Healthcare_dashboard_interface_2e3152ad.png";
+import clinicImage from "/Modern_clinic_reception_1d7ea30c.png";
 
 const features = {
   dashboard: {
