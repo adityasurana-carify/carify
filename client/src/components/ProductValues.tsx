@@ -38,23 +38,26 @@ export default function ProductValues() {
         </div>
         
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {values.map((value, index) => (
-            <Card key={index} className="hover-elevate transition-transform" data-testid={`card-value-${index}`}>
-              <CardHeader>
-                <div className="flex justify-center mb-4">
-                  <div className="p-3 bg-primary/10 rounded-lg">
-                    <value.icon className="h-8 w-8 text-primary" />
+          {values.map((value, index) => {
+            const colors = ['blue', 'green', 'purple', 'orange'] as const;
+            return (
+              <Card key={index} className="hover-elevate transition-transform" glowColor={colors[index]} data-testid={`card-value-${index}`}>
+                <CardHeader>
+                  <div className="flex justify-center mb-4">
+                    <div className="p-3 bg-primary/10 rounded-lg">
+                      <value.icon className="h-8 w-8 text-primary" />
+                    </div>
                   </div>
-                </div>
-                <CardTitle className="text-lg text-center">{value.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground text-center leading-relaxed">
-                  {value.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+                  <CardTitle className="text-lg text-center">{value.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground text-center leading-relaxed">
+                    {value.description}
+                  </p>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>

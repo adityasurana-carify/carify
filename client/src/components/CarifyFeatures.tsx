@@ -2,6 +2,7 @@ import { Phone, MessageCircle, Activity } from 'lucide-react';
 import DottedMap from 'dotted-map';
 import { Area, AreaChart, CartesianGrid } from 'recharts';
 import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
+import { GlowCard } from '@/components/ui/spotlight-card';
 import AnimatedSection from './AnimatedSection';
 
 const map = new DottedMap({ height: 55, grid: 'diagonal' });
@@ -105,9 +106,9 @@ export default function CarifyFeatures() {
                     </div>
                 </AnimatedSection>
 
-                <div className="mx-auto grid max-w-6xl border rounded-lg overflow-hidden md:grid-cols-2">
+                <div className="mx-auto grid max-w-6xl gap-4 md:grid-cols-2">
                     <AnimatedSection delay={0.1}>
-                        <div>
+                        <GlowCard customSize glowColor="blue" className="h-full">
                             <div className="p-6 sm:p-12">
                                 <span className="text-muted-foreground flex items-center gap-2">
                                     <Phone className="size-4" />
@@ -121,10 +122,10 @@ export default function CarifyFeatures() {
 
                             <div aria-hidden className="relative">
                                 <div className="absolute inset-0 z-10 m-auto size-fit">
-                                    <div className="rounded-md bg-background dark:bg-muted relative flex size-fit w-fit items-center gap-2 border px-3 py-1 text-xs font-medium shadow-lg">
+                                    <div className="rounded-md bg-background/80 backdrop-blur-sm relative flex size-fit w-fit items-center gap-2 border px-3 py-1 text-xs font-medium shadow-lg">
                                         <span className="text-lg">🏥</span> Active in 15+ countries
                                     </div>
-                                    <div className="rounded-md bg-background absolute inset-2 -bottom-2 mx-auto border px-3 py-4 text-xs font-medium shadow-md dark:bg-zinc-900"></div>
+                                    <div className="rounded-md bg-background/60 backdrop-blur-sm absolute inset-2 -bottom-2 mx-auto border px-3 py-4 text-xs font-medium shadow-md"></div>
                                 </div>
 
                                 <div className="relative overflow-hidden">
@@ -132,11 +133,11 @@ export default function CarifyFeatures() {
                                     <Map />
                                 </div>
                             </div>
-                        </div>
+                        </GlowCard>
                     </AnimatedSection>
 
                     <AnimatedSection delay={0.2}>
-                        <div className="overflow-hidden border-t bg-muted/50 p-6 sm:p-12 md:border-0 md:border-l">
+                        <GlowCard customSize glowColor="green" className="h-full p-6 sm:p-12">
                             <div className="relative z-10">
                                 <span className="text-muted-foreground flex items-center gap-2">
                                     <MessageCircle className="size-4" />
@@ -155,7 +156,7 @@ export default function CarifyFeatures() {
                                         </span>
                                         <span className="text-muted-foreground text-xs">Today, 9:30 AM</span>
                                     </div>
-                                    <div className="rounded-md bg-background mt-1.5 w-4/5 border p-3 text-xs">
+                                    <div className="rounded-md bg-background/80 backdrop-blur-sm mt-1.5 w-4/5 border p-3 text-xs">
                                         Hi, I need to schedule a follow-up appointment for next week.
                                     </div>
                                 </div>
@@ -167,30 +168,34 @@ export default function CarifyFeatures() {
                                     <span className="text-muted-foreground block text-right text-xs">9:30 AM</span>
                                 </div>
                             </div>
-                        </div>
+                        </GlowCard>
                     </AnimatedSection>
 
                     <AnimatedSection delay={0.3}>
-                        <div className="col-span-full border-y p-12 bg-primary/5">
-                            <p className="text-center text-4xl font-semibold lg:text-7xl">99.99% Uptime</p>
-                            <p className="text-center text-muted-foreground mt-4">Healthcare-grade reliability you can count on</p>
+                        <div className="col-span-full">
+                            <GlowCard customSize glowColor="purple" className="p-12 w-full">
+                                <p className="text-center text-4xl font-semibold lg:text-7xl">99.99% Uptime</p>
+                                <p className="text-center text-muted-foreground mt-4">Healthcare-grade reliability you can count on</p>
+                            </GlowCard>
                         </div>
                     </AnimatedSection>
 
                     <AnimatedSection delay={0.4}>
-                        <div className="relative col-span-full">
-                            <div className="absolute z-10 max-w-lg px-6 pr-12 pt-6 md:px-12 md:pt-12">
-                                <span className="text-muted-foreground flex items-center gap-2">
-                                    <Activity className="size-4" />
-                                    Real-Time Analytics
-                                </span>
+                        <div className="col-span-full">
+                            <GlowCard customSize glowColor="orange" className="relative w-full">
+                                <div className="absolute z-10 max-w-lg px-6 pr-12 pt-6 md:px-12 md:pt-12">
+                                    <span className="text-muted-foreground flex items-center gap-2">
+                                        <Activity className="size-4" />
+                                        Real-Time Analytics
+                                    </span>
 
-                                <p className="my-8 text-2xl font-semibold">
-                                    Monitor call volume and appointments in real-time.{' '}
-                                    <span className="text-muted-foreground">Track performance and identify trends instantly.</span>
-                                </p>
-                            </div>
-                            <MonitoringChart />
+                                    <p className="my-8 text-2xl font-semibold">
+                                        Monitor call volume and appointments in real-time.{' '}
+                                        <span className="text-muted-foreground">Track performance and identify trends instantly.</span>
+                                    </p>
+                                </div>
+                                <MonitoringChart />
+                            </GlowCard>
                         </div>
                     </AnimatedSection>
                 </div>

@@ -7,15 +7,16 @@ interface StatsCardProps {
   stat: string;
   description: string;
   testId?: string;
+  glowColor?: 'blue' | 'purple' | 'green' | 'red' | 'orange';
 }
 
-export default function StatsCard({ icon: Icon, stat, description, testId }: StatsCardProps) {
+export default function StatsCard({ icon: Icon, stat, description, testId, glowColor = 'blue' }: StatsCardProps) {
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
       transition={{ type: "spring", stiffness: 300 }}
     >
-      <Card className="hover-elevate transition-transform h-full" data-testid={testId}>
+      <Card className="hover-elevate transition-transform h-full" glowColor={glowColor} data-testid={testId}>
       <CardContent className="pt-6 text-center space-y-4">
         <div className="flex justify-center">
           <div className="p-3 bg-primary/10 rounded-lg">

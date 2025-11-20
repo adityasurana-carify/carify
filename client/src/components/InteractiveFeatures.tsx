@@ -63,39 +63,42 @@ export default function InteractiveFeatures() {
               <TabsTrigger value="analytics" data-testid="tab-analytics">Analytics</TabsTrigger>
             </TabsList>
 
-            {Object.entries(features).map(([key, feature]) => (
-              <TabsContent key={key} value={key}>
-                <Card>
-                  <div className="grid md:grid-cols-2 gap-8">
-                    <div className="p-8 space-y-6">
-                      <CardHeader className="p-0">
-                        <CardTitle className="text-2xl">{feature.title}</CardTitle>
-                      </CardHeader>
-                      <CardContent className="p-0">
-                        <p className="text-muted-foreground leading-relaxed mb-6">
-                          {feature.description}
-                        </p>
-                        <div className="space-y-3">
-                          {feature.benefits.map((benefit, index) => (
-                            <div key={index} className="flex items-center gap-3">
-                              <div className="w-2 h-2 rounded-full bg-primary" />
-                              <span className="text-sm">{benefit}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </CardContent>
+            {Object.entries(features).map(([key, feature], index) => {
+              const colors = ['blue', 'purple', 'green'] as const;
+              return (
+                <TabsContent key={key} value={key}>
+                  <Card glowColor={colors[index]}>
+                    <div className="grid md:grid-cols-2 gap-8">
+                      <div className="p-8 space-y-6">
+                        <CardHeader className="p-0">
+                          <CardTitle className="text-2xl">{feature.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent className="p-0">
+                          <p className="text-muted-foreground leading-relaxed mb-6">
+                            {feature.description}
+                          </p>
+                          <div className="space-y-3">
+                            {feature.benefits.map((benefit, index) => (
+                              <div key={index} className="flex items-center gap-3">
+                                <div className="w-2 h-2 rounded-full bg-primary" />
+                                <span className="text-sm">{benefit}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </CardContent>
+                      </div>
+                      <div className="relative h-64 md:h-auto">
+                        <img
+                          src={feature.image}
+                          alt={feature.title}
+                          className="w-full h-full object-cover rounded-r-lg"
+                        />
+                      </div>
                     </div>
-                    <div className="relative h-64 md:h-auto">
-                      <img
-                        src={feature.image}
-                        alt={feature.title}
-                        className="w-full h-full object-cover rounded-r-lg"
-                      />
-                    </div>
-                  </div>
-                </Card>
-              </TabsContent>
-            ))}
+                  </Card>
+                </TabsContent>
+              );
+            })}
           </Tabs>
         </AnimatedSection>
       </div>

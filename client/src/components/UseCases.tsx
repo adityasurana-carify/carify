@@ -43,23 +43,26 @@ export default function UseCases() {
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {useCases.map((useCase, index) => (
-            <Card key={index} className="hover-elevate transition-transform" data-testid={`card-usecase-${index}`}>
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="p-2 bg-primary/10 rounded-lg">
-                    <useCase.icon className="h-6 w-6 text-primary" />
+          {useCases.map((useCase, index) => {
+            const colors = ['blue', 'green', 'purple', 'orange', 'red'] as const;
+            return (
+              <Card key={index} className="hover-elevate transition-transform" glowColor={colors[index]} data-testid={`card-usecase-${index}`}>
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <useCase.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <CardTitle className="text-lg">{useCase.title}</CardTitle>
                   </div>
-                  <CardTitle className="text-lg">{useCase.title}</CardTitle>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {useCase.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {useCase.description}
+                  </p>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>

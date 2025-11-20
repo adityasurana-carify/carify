@@ -1,20 +1,39 @@
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
+import { GlowCard } from "./spotlight-card"
 
 const Card = React.forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      "shadcn-card rounded-xl border bg-card border-card-border text-card-foreground shadow-sm",
-      className
-    )}
-    {...props}
-  />
-));
+  React.HTMLAttributes<HTMLDivElement> & { useGlow?: boolean; glowColor?: 'blue' | 'purple' | 'green' | 'red' | 'orange' }
+>(({ className, useGlow = true, glowColor = 'blue', ...props }, ref) => {
+  if (useGlow) {
+    return (
+      <GlowCard
+        customSize
+        glowColor={glowColor}
+        className={cn(
+          "text-card-foreground",
+          className
+        )}
+        {...props}
+      >
+        {props.children}
+      </GlowCard>
+    );
+  }
+  
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        "shadcn-card rounded-xl border bg-card border-card-border text-card-foreground shadow-sm",
+        className
+      )}
+      {...props}
+    />
+  );
+});
 Card.displayName = "Card"
 
 const CardHeader = React.forwardRef<

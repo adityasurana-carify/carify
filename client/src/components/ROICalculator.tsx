@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Input } from "@/components/ui/input";
+import ParallaxSection from "./ParallaxSection";
 
 export default function ROICalculator() {
   const [avgCallTime, setAvgCallTime] = useState(15);
@@ -16,7 +17,8 @@ export default function ROICalculator() {
   const totalDollars = Math.round(totalHours * hourlyRate);
 
   return (
-    <Card className="w-full max-w-4xl mx-auto shadow-xl" data-testid="card-roi-calculator">
+    <ParallaxSection speed={0.3} direction="down">
+      <Card className="w-full max-w-4xl mx-auto shadow-xl" glowColor="blue" data-testid="card-roi-calculator">
       <CardHeader className="space-y-2">
         <CardTitle className="text-2xl">Calculate Your ROI</CardTitle>
         <CardDescription className="text-base">
@@ -77,30 +79,31 @@ export default function ROICalculator() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 pt-6 border-t">
-          <div className="bg-primary/10 rounded-lg p-6 text-center space-y-2">
+          <Card useGlow={false} className="bg-primary/10 rounded-lg p-6 text-center space-y-2">
             <p className="text-sm font-medium text-muted-foreground">Hours Saved Per Call</p>
             <p className="text-4xl font-bold text-primary" data-testid="text-hours-per-call">
               {(avgCallTime / 60).toFixed(1)}
             </p>
-          </div>
-          <div className="bg-primary/10 rounded-lg p-6 text-center space-y-2">
+          </Card>
+          <Card useGlow={false} className="bg-primary/10 rounded-lg p-6 text-center space-y-2">
             <p className="text-sm font-medium text-muted-foreground">Total Hours Saved Annually</p>
             <p className="text-4xl font-bold text-primary" data-testid="text-total-hours">
               {totalHours.toLocaleString()}
             </p>
-          </div>
-          <div className="bg-chart-3/20 rounded-lg p-6 text-center space-y-2">
+          </Card>
+          <Card useGlow={false} className="bg-chart-3/20 rounded-lg p-6 text-center space-y-2">
             <p className="text-sm font-medium text-muted-foreground">Total Dollars Saved Annually</p>
             <p className="text-4xl font-bold text-chart-3" data-testid="text-total-dollars">
               ${totalDollars.toLocaleString()}
             </p>
-          </div>
+          </Card>
         </div>
 
         <p className="text-xs text-muted-foreground text-center pt-4">
           The calculator assumes a default industry average rate of ${hourlyRate} per hour for the call handling role to compute the Total Dollars Saved
         </p>
       </CardContent>
-    </Card>
+      </Card>
+    </ParallaxSection>
   );
 }
