@@ -2,9 +2,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Quote } from "lucide-react";
 import ParallaxSection from "./ParallaxSection";
-import patient1 from "/Happy_patient_on_phone_e396094b.png";
-import doctor1 from "/Healthcare_professional_portrait_ad27d7e5.png";
-import manager1 from "/Medical_office_manager_452fbaa7.png";
+const patient1 = "/Happy_patient_on_phone_e396094b.png";
+const doctor1 = "/Healthcare_professional_portrait_ad27d7e5.png";
+const manager1 = "/Medical_office_manager_452fbaa7.png";
 
 const testimonials = [
   {
