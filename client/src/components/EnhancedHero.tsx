@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { HoverBorderGradient } from "@/components/ui/hover-border-gradient";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
-import heroImage from "/Healthcare_professionals_using_technology_cfe0b0c4.png";
+const heroImage = "/Healthcare_professionals_using_technology_cfe0b0c4.png";
 
 export default function EnhancedHero() {
   const scrollToDemo = () => {
