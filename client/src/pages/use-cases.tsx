@@ -8,6 +8,7 @@ import { FeaturesSectionWithHoverEffects } from "@/components/ui/feature-section
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import Featured_05 from "@/components/ui/globe-feature-section";
 import { TestimonialsDemo } from "@/components/ui/testimonials-demo";
+import { WordFadeIn } from "@/components/ui/word-fade-in";
 
 function ScrollCard({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
   const { ref, isVisible } = useScrollAnimation();
@@ -161,9 +162,7 @@ export default function UseCasesPage() {
               <Shield className="h-5 w-5 mr-2" />
               Payer
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Insurance & Claims Management
-            </h2>
+            <WordFadeIn words="Insurance & Claims Management" className="text-5xl md:text-7xl font-bold text-foreground mb-4" />
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Streamline insurance verification, prior authorizations, and claims processing with AI-powered automation
             </p>
@@ -219,9 +218,7 @@ export default function UseCasesPage() {
               <Users className="h-5 w-5 mr-2" />
               Patient
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Patient Experience & Engagement
-            </h2>
+            <WordFadeIn words="Patient Experience & Engagement" className="text-5xl md:text-7xl font-bold text-foreground mb-4" />
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Enhance patient satisfaction with automated intake, personalized outreach, and comprehensive care support
             </p>
@@ -266,9 +263,7 @@ export default function UseCasesPage() {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollCard className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Platform Capabilities
-            </h2>
+            <WordFadeIn words="Platform Capabilities" className="text-5xl md:text-7xl font-bold text-foreground mb-4" />
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Comprehensive features designed for modern healthcare operations
             </p>
@@ -283,9 +278,7 @@ export default function UseCasesPage() {
       <section className="py-16 md:py-24 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollCard className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Transform Your Healthcare Operations?
-            </h2>
+            <WordFadeIn words="Ready to Transform Your Healthcare Operations?" className="text-5xl md:text-7xl font-bold mb-6" />
             <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
               See how Jenny can streamline your workflows and improve patient outcomes across all these use cases.
             </p>

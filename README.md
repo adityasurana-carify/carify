@@ -113,11 +113,16 @@ carify/
 ## 🌟 Features
 
 - **AI Insurance Coordinator (Jenny)** - Automated benefits verification
+- **AI Care Manager (Ryan)** - Perioperative & preventive care management
+- **Comprehensive Demo Booking** - Multi-step form with calendar scheduling
+- **8 Healthcare Programs** - RPM, Health Monitoring, Remote Care, and more
 - **24/7 Availability** - Works around the clock
 - **HIPAA Compliant** - Built for healthcare security
 - **Modern UI** - Responsive design with smooth animations
 - **Error Boundaries** - Robust error handling
 - **TypeScript** - Type-safe development
+- **Video Integration** - Embedded demo videos
+- **Interactive FAQs** - Comprehensive Q&A sections
 
 ## 🚨 Troubleshooting
 

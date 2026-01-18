@@ -3,10 +3,10 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { HoverBorderGradient } from '@/components/ui/hover-border-gradient';
-import { useDemoModal } from '@/hooks/use-demo-modal';
+import { useLocation } from 'wouter';
 
 export default function HeroSection() {
-  const { openModal } = useDemoModal();
+  const [, setLocation] = useLocation();
   
   return (
     <>
@@ -34,23 +34,30 @@ export default function HeroSection() {
         <div className="mx-auto w-full flex items-center justify-center gap-3 mt-8 animate-fade-in-up animation-delay-600">
           <HoverBorderGradient
             as="button"
-            onClick={openModal}
+            onClick={() => setLocation('/book-demo')}
             className="dark:bg-blue-600 bg-blue-600 text-white dark:text-white px-8 py-4 font-medium"
           >
             Book Free Demo
           </HoverBorderGradient>
-          <button className="flex items-center gap-2 border border-gray-300 hover:bg-gray-50 rounded-full px-8 py-4 transition-all hover:scale-105">
+          <button 
+            onClick={() => window.open('https://youtu.be/uiMxtsjVPY0', '_blank')}
+            className="flex items-center gap-2 border border-gray-300 hover:bg-gray-50 rounded-full px-8 py-4 transition-all hover:scale-105"
+          >
             <span>Watch Video</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
         
         <div className="mt-16 max-w-4xl mx-auto px-4">
-          <img 
-            src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=500&fit=crop" 
-            alt="Healthcare AI Dashboard" 
-            className="w-full rounded-2xl shadow-2xl border border-white/20"
-          />
+          <div className="relative w-full rounded-2xl shadow-2xl border border-white/20 overflow-hidden" style={{ paddingBottom: '56.25%' }}>
+            <iframe
+              className="absolute top-0 left-0 w-full h-full"
+              src="https://www.youtube.com/embed/uiMxtsjVPY0"
+              title="Carify Health Demo"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
         </div>
       </section>
     </>

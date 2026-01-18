@@ -3,16 +3,14 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useDemoModal } from "@/hooks/use-demo-modal";
 const logo = "/logo.png";
 
 export default function Header() {
-  const [location] = useLocation();
+  const [location, setLocation] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { openModal } = useDemoModal();
 
   const handleBookDemo = () => {
-    openModal();
+    setLocation('/book-demo');
     setMobileMenuOpen(false);
   };
 
