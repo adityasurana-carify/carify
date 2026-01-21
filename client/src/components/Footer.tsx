@@ -54,7 +54,7 @@ export default function Footer() {
         </ParallaxSection>
         
         {/* Footer Links Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           {/* Company Info */}
           <motion.div 
             className="space-y-4"
@@ -65,7 +65,7 @@ export default function Footer() {
           >
             <h3 className="text-lg font-bold text-white">Carify Health</h3>
             <p className="text-sm text-blue-100 leading-relaxed">
-              AI-powered healthcare solutions that transform patient care and streamline operations.
+              Moving healthcare from Reactive to Predictive.
             </p>
             <div className="flex space-x-4">
               <motion.a 
@@ -101,13 +101,42 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* Quick Links */}
+          {/* Product Links */}
           <motion.div 
             className="space-y-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h3 className="text-lg font-bold text-white">Product</h3>
+            <ul className="space-y-3">
+              {[
+                { label: "Platform" },
+                { label: "Jenny (Admin Agent)" },
+                { label: "Joe (Clinical Agent)" },
+                { label: "Integrations" },
+                { label: "Security (SOC2/HIPAA)" }
+              ].map((link, index) => (
+                <li key={index}>
+                  <motion.span 
+                    className="text-sm text-blue-100 hover:text-white transition-colors duration-300 cursor-pointer"
+                    whileHover={{ x: 5 }}
+                  >
+                    {link.label}
+                  </motion.span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Quick Links */}
+          <motion.div 
+            className="space-y-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
             <h3 className="text-lg font-bold text-white">Quick Links</h3>
             <ul className="space-y-3">
@@ -131,30 +160,7 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Solutions */}
-          <motion.div 
-            className="space-y-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <h3 className="text-lg font-bold text-white">Solutions</h3>
-            <ul className="space-y-3">
-              {[
-                "Insurance Verification",
-                "Appointment Management",
-                "Patient Engagement",
-                "Claims Processing"
-              ].map((solution, index) => (
-                <li key={index}>
-                  <span className="text-sm text-blue-100">{solution}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Contact Info */}
+          {/* Support Links */}
           <motion.div 
             className="space-y-4"
             initial={{ opacity: 0, y: 20 }}
@@ -162,42 +168,65 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h3 className="text-lg font-bold text-white">Contact Us</h3>
-            <div className="space-y-3">
-              <motion.div 
-                className="flex items-center space-x-3"
-                whileHover={{ x: 5 }}
-              >
-                <div className="w-8 h-8 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                  <Mail className="h-4 w-4 text-blue-100" />
-                </div>
-                <a href="mailto:hello@carify.health" className="text-sm text-blue-100 hover:text-white transition-colors duration-300">
-                  hello@carify.health
-                </a>
-              </motion.div>
-              <motion.div 
-                className="flex items-center space-x-3"
-                whileHover={{ x: 5 }}
-              >
-                <div className="w-8 h-8 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                  <Phone className="h-4 w-4 text-blue-100" />
-                </div>
-                <a href="tel:+1-555-CARIFY" className="text-sm text-blue-100 hover:text-white transition-colors duration-300">
-                  +1 (555) CARIFY
-                </a>
-              </motion.div>
-              <motion.div 
-                className="flex items-start space-x-3"
-                whileHover={{ x: 5 }}
-              >
-                <div className="w-8 h-8 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                  <MapPin className="h-4 w-4 text-blue-100 mt-0.5" />
-                </div>
-                <span className="text-sm text-blue-100">
-                  San Francisco, CA
-                </span>
-              </motion.div>
-            </div>
+            <h3 className="text-lg font-bold text-white">Support</h3>
+            <ul className="space-y-3">
+              <li>
+                <motion.span 
+                  className="text-sm text-blue-100 hover:text-white transition-colors duration-300 cursor-pointer"
+                  whileHover={{ x: 5 }}
+                >
+                  Help Center
+                </motion.span>
+              </li>
+              <li>
+                <motion.a
+                  href="https://wa.me/15550123"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-blue-100 hover:text-white transition-colors duration-300 flex items-center gap-2"
+                  whileHover={{ x: 5 }}
+                >
+                  Priority Support: WhatsApp
+                </motion.a>
+              </li>
+              <li>
+                <motion.a
+                  href="mailto:contact@carify.health"
+                  className="text-sm text-blue-100 hover:text-white transition-colors duration-300"
+                  whileHover={{ x: 5 }}
+                >
+                  Email: contact@carify.health
+                </motion.a>
+              </li>
+            </ul>
+          </motion.div>
+
+          {/* Legal Links */}
+          <motion.div 
+            className="space-y-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            <h3 className="text-lg font-bold text-white">Legal</h3>
+            <ul className="space-y-3">
+              {[
+                { href: "/privacy", label: "Privacy Policy" },
+                { href: "/terms", label: "Terms of Service" },
+                { href: "/baa", label: "BAA (Business Associate Agreement)" }
+              ].map((link, index) => (
+                <li key={index}>
+                  <motion.a 
+                    href={link.href}
+                    className="text-sm text-blue-100 hover:text-white transition-colors duration-300"
+                    whileHover={{ x: 5 }}
+                  >
+                    {link.label}
+                  </motion.a>
+                </li>
+              ))}
+            </ul>
           </motion.div>
         </div>
         
@@ -211,23 +240,7 @@ export default function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-sm text-blue-100">
-              <p>&copy; {new Date().getFullYear()} Carify Health. All rights reserved.</p>
-            </div>
-            <div className="flex space-x-6">
-              {[
-                { href: "/privacy", label: "Privacy Policy" },
-                { href: "/terms", label: "Terms of Service" },
-                { href: "/security", label: "Security" }
-              ].map((link, index) => (
-                <motion.a 
-                  key={link.href}
-                  href={link.href} 
-                  className="text-sm text-blue-100 hover:text-white transition-colors duration-300"
-                  whileHover={{ y: -2 }}
-                >
-                  {link.label}
-                </motion.a>
-              ))}
+              <p>&copy; 2026 Carify Health AI. All rights reserved. | 100% HIPAA Compliant</p>
             </div>
           </div>
         </motion.div>

@@ -59,6 +59,30 @@ export default function ROICalculatorPage() {
         <section className="py-16 md:py-24 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <ScrollCard>
+              <div className="text-center mb-12">
+                <h2 className="text-4xl md:text-5xl font-bold mb-4">The Carify Advantage</h2>
+                <p className="text-xl text-gray-600">Quantifiable outcomes that transform your practice</p>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-16">
+                <div className="bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200 rounded-2xl p-8">
+                  <h3 className="text-3xl font-bold text-blue-600 mb-4">30% Lower Overhead</h3>
+                  <p className="text-gray-700">We don't just save minutes; we remove entire workflows. By automating benefits verification and hold times, we slash operational costs by a third.</p>
+                </div>
+                <div className="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-200 rounded-2xl p-8">
+                  <h3 className="text-3xl font-bold text-green-600 mb-4">4x More Preventive Visits</h3>
+                  <p className="text-gray-700">Jenny proactively mines your data to find care gaps, quadrupling the volume of high-value wellness visits and screenings without adding staff work.</p>
+                </div>
+                <div className="bg-gradient-to-br from-purple-50 to-purple-100 border-2 border-purple-200 rounded-2xl p-8">
+                  <h3 className="text-3xl font-bold text-purple-600 mb-4">85% First-Contact Resolution</h3>
+                  <p className="text-gray-700">Jenny doesn't just take messages. She resolves inquiries—scheduling, billing, and intake—completely autonomously.</p>
+                </div>
+                <div className="bg-gradient-to-br from-orange-50 to-orange-100 border-2 border-orange-200 rounded-2xl p-8">
+                  <h3 className="text-3xl font-bold text-orange-600 mb-4">&lt;3% No-Show Rate</h3>
+                  <p className="text-gray-700">Our predictive engine spots potential cancellations early and refills the slot instantly, keeping provider utilization above 97%.</p>
+                </div>
+              </div>
+              
               <ROICalculator />
             </ScrollCard>
           </div>
@@ -89,11 +113,12 @@ export default function ROICalculatorPage() {
         ]}
         legalLinks={[
           { href: "/privacy", label: "Privacy" },
-          { href: "/terms", label: "Terms" }
+          { href: "/terms", label: "Terms" },
+          { href: "/baa", label: "BAA (Business Associate Agreement)" }
         ]}
         copyright={{
-          text: "© 2024 Carify Health",
-          license: "Calculate your savings today"
+          text: "© 2026 Carify Health AI. All rights reserved.",
+          license: "100% HIPAA Compliant"
         }}
       />
     </div>

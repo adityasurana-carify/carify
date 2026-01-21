@@ -7,27 +7,19 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Phone } from 'lucide-react';
 
-const programs = [
-  'RPM',
-  'Health Data Collection',
-  'Health Monitoring Checkin',
-  'Remote Patient Care',
-  'Healthcare Marketing',
-  'Post Discharge Workflows and Data Collection',
-  'Pre-hospitalization Support',
-  'Health Device Monitoring & Patient Walkthrough'
+const solutionInterests = [
+  'Clinical Operations (RPM, Pre/Post-Op, Chronic Care)',
+  'Front Desk Admin (Scheduling, Insurance Verification)',
+  'Patient Experience (Concierge, Wellness, Marketing)'
 ];
 
-const callFrequencies = [
-  '10-50 calls/day',
-  '50-100 calls/day',
-  '100-200 calls/day',
-  '200+ calls/day',
-  '50-100 calls/week',
-  '100-200 calls/week',
-  '200+ calls/week'
+const patientVolumes = [
+  '< 500',
+  '500 - 2,500',
+  '2,500+'
 ];
 
 export default function BookDemoPage() {
@@ -38,26 +30,17 @@ export default function BookDemoPage() {
     email: '',
     phone: '',
     companyName: '',
-    selectedPrograms: [] as string[],
-    callFrequency: [] as string[],
+    solutionInterests: [] as string[],
+    patientVolume: '',
     note: ''
   });
 
-  const handleProgramToggle = (program: string) => {
+  const handleSolutionToggle = (solution: string) => {
     setFormData(prev => ({
       ...prev,
-      selectedPrograms: prev.selectedPrograms.includes(program)
-        ? prev.selectedPrograms.filter(p => p !== program)
-        : [...prev.selectedPrograms, program]
-    }));
-  };
-
-  const handleFrequencyToggle = (freq: string) => {
-    setFormData(prev => ({
-      ...prev,
-      callFrequency: prev.callFrequency.includes(freq)
-        ? prev.callFrequency.filter(f => f !== freq)
-        : [...prev.callFrequency, freq]
+      solutionInterests: prev.solutionInterests.includes(solution)
+        ? prev.solutionInterests.filter(s => s !== solution)
+        : [...prev.solutionInterests, solution]
     }));
   };
 
@@ -75,9 +58,9 @@ export default function BookDemoPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
             <h1 className="text-4xl font-bold text-center mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Fill & Submit your info
+              See Jenny & Joe in Action
             </h1>
-            <p className="text-center text-gray-600 mb-8">Complete the form below to book your demo</p>
+            <p className="text-center text-gray-600 mb-8">Book a personalized demo to see how much time your practice can save.</p>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -102,12 +85,23 @@ export default function BookDemoPage() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email">Email *</Label>
+                <Label htmlFor="email">Work Email *</Label>
                 <Input
                   id="email"
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  placeholder="you@company.com"
+                  required
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="companyName">Practice / Company Name *</Label>
+                <Input
+                  id="companyName"
+                  value={formData.companyName}
+                  onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                   required
                 />
               </div>
@@ -122,28 +116,19 @@ export default function BookDemoPage() {
                 />
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="companyName">Company Name *</Label>
-                <Input
-                  id="companyName"
-                  value={formData.companyName}
-                  onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                  required
-                />
-              </div>
-
               <div className="space-y-3">
-                <Label>Select Your Programs (select multiple) *</Label>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {programs.map((program) => (
-                    <div key={program} className="flex items-center space-x-2">
+                <Label>Which solutions interest you? (Select all that apply) *</Label>
+                <div className="space-y-3">
+                  {solutionInterests.map((solution) => (
+                    <div key={solution} className="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
                       <Checkbox
-                        id={program}
-                        checked={formData.selectedPrograms.includes(program)}
-                        onCheckedChange={() => handleProgramToggle(program)}
+                        id={solution}
+                        checked={formData.solutionInterests.includes(solution)}
+                        onCheckedChange={() => handleSolutionToggle(solution)}
+                        className="mt-1"
                       />
-                      <label htmlFor={program} className="text-sm cursor-pointer">
-                        {program}
+                      <label htmlFor={solution} className="text-sm cursor-pointer flex-1">
+                        {solution}
                       </label>
                     </div>
                   ))}
@@ -151,25 +136,21 @@ export default function BookDemoPage() {
               </div>
 
               <div className="space-y-3">
-                <Label>How Many Calls per Day/Week? (Optional)</Label>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {callFrequencies.map((freq) => (
-                    <div key={freq} className="flex items-center space-x-2">
-                      <Checkbox
-                        id={freq}
-                        checked={formData.callFrequency.includes(freq)}
-                        onCheckedChange={() => handleFrequencyToggle(freq)}
-                      />
-                      <label htmlFor={freq} className="text-sm cursor-pointer">
-                        {freq}
+                <Label>Patient Volume (Calls/Month)</Label>
+                <RadioGroup value={formData.patientVolume} onValueChange={(value) => setFormData({ ...formData, patientVolume: value })}>
+                  {patientVolumes.map((volume) => (
+                    <div key={volume} className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                      <RadioGroupItem value={volume} id={volume} />
+                      <label htmlFor={volume} className="text-sm cursor-pointer flex-1">
+                        {volume}
                       </label>
                     </div>
                   ))}
-                </div>
+                </RadioGroup>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="note">Leave a Note (Optional)</Label>
+                <Label htmlFor="note">Additional Notes (Optional)</Label>
                 <Textarea
                   id="note"
                   value={formData.note}
@@ -179,7 +160,7 @@ export default function BookDemoPage() {
                 />
               </div>
 
-              <Button type="submit" className="w-full py-6 text-lg">
+              <Button type="submit" className="w-full py-6 text-lg bg-blue-600 hover:bg-blue-700">
                 Continue to Schedule Demo
               </Button>
             </form>
@@ -197,9 +178,10 @@ export default function BookDemoPage() {
         ]}
         legalLinks={[
           { href: "/privacy", label: "Privacy" },
-          { href: "/terms", label: "Terms" }
+          { href: "/terms", label: "Terms" },
+          { href: "/baa", label: "BAA (Business Associate Agreement)" }
         ]}
-        copyright={{ text: "© 2024 Carify Health", license: "All rights reserved" }}
+        copyright={{ text: "© 2026 Carify Health AI. All rights reserved.", license: "100% HIPAA Compliant" }}
       />
     </div>
   );

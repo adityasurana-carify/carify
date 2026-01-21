@@ -3,7 +3,7 @@ import HeroSection from "@/components/ui/hero-section";
 import { Footer } from "@/components/ui/footer";
 import ParallaxSection from "@/components/ParallaxSection";
 import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
+import { Phone, Play, CheckCircle, TrendingUp, Users, Clock } from "lucide-react";
 import { TestimonialsDemo } from "@/components/ui/testimonials-demo";
 import { motion } from "framer-motion";
 import { useLocation } from "wouter";
@@ -19,6 +19,8 @@ import { WordFadeIn } from "@/components/ui/word-fade-in";
 import FeaturedSectionStats from "@/components/ui/featured-section-stats";
 import { Features } from "@/components/ui/features-4";
 import RuixenSection from "@/components/ui/ruixen-feature-section";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 
 
@@ -26,29 +28,260 @@ export default function HomePage() {
   const [, setLocation] = useLocation();
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col" id="hero">
       <Header />
-      <HeroSection />
+      
+      {/* New Hero Section */}
+      <section className="bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20 md:py-32">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-5xl mx-auto">
+            <motion.h1 
+              className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              Automate Patient Care with AI Clinical Agents
+            </motion.h1>
+            <motion.p 
+              className="text-xl md:text-2xl text-gray-700 mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Reduce care effort by 40%. From RPM and Pre-Op monitoring to daily check-ins, our AI agents (Jenny & Joe) handle the routine workflows so your clinicians can focus on the healing.
+            </motion.p>
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <Button size="lg" onClick={() => setLocation('/book-demo')} className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg">
+                Book a Demo
+              </Button>
+              <Button size="lg" variant="outline" className="px-8 py-6 text-lg group">
+                <Play className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
+                Listen to Jenny
+              </Button>
+            </motion.div>
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+                <div className="text-3xl font-bold text-blue-600 mb-2">100k+</div>
+                <div className="text-gray-600">Calls Automated</div>
+              </div>
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+                <div className="text-3xl font-bold text-blue-600 mb-2">15 Mins</div>
+                <div className="text-gray-600">Saved Per Patient</div>
+              </div>
+              <div className="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+                <div className="text-3xl font-bold text-blue-600 mb-2">100%</div>
+                <div className="text-gray-600">HIPAA Compliant</div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Founder's Philosophy */}
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-xl"
+            >
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">The Founder's Philosophy</h2>
+              <p className="text-lg md:text-xl text-gray-700 leading-relaxed italic">
+                "A practice shouldn't be defined by how many calls it can take, but by how many lives it can proactively manage. We built Carify Health to move healthcare from Reactive to Predictive."
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Vision Section */}
+      <section id="vision" className="py-20 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Don't Settle for Half the Solution</h2>
+              <p className="text-xl text-blue-100 mb-12">
+                Most AI agents only handle the phone lines. Carify manages the entire patient journey—from the first call to full recovery.
+              </p>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-video bg-black/20">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/uiMxtsjVPY0"
+                  title="Carify Health Demo"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <p className="text-sm text-blue-200 mt-6">
+                See how our "Whole Practice" approach outperforms standard automation tools.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
       
       <main className="flex-1">
         {/* Our Programs */}
-        <section className="py-20 bg-gradient-to-br from-blue-50 to-cyan-50">
+        <section id="solutions" className="py-20 bg-gradient-to-br from-blue-50 to-cyan-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">Select a Care Program or Build Your Own</h2>
+              <p className="text-xl text-gray-600">Launch immediately with our pre-built workflows or customize your agent in minutes.</p>
+            </div>
+            
             <ParallaxSection className="mb-12">
-              <BentoCards
-                title="Our Programs"
-                subtitle="Choose any program or make a Custom One. Start almost immediately with our 1 month free trial"
-                cards={[
-                  { title: "RPM", description: "Remote Patient Monitoring - Track vital signs, medication adherence, and health metrics in real-time. Our AI agents proactively identify trends and alert your team to potential issues before they become emergencies." },
-                  { title: "Health Data", description: "Comprehensive Collection - Seamlessly gather patient data from wearables, smart devices, and manual inputs. Automated data validation ensures accuracy while reducing administrative burden on your staff." },
-                  { title: "Monitoring", description: "Regular Check-ins - Automated patient outreach for scheduled follow-ups, symptom tracking, and wellness checks. Ryan ensures no patient falls through the cracks with personalized care protocols." },
-                  { title: "Remote Care", description: "Virtual Delivery - Enable telehealth visits, virtual consultations, and remote care coordination. Jenny handles scheduling, insurance verification, and pre-visit preparation automatically." },
-                  { title: "Marketing", description: "Patient Engagement - Boost appointment bookings, reduce no-shows, and increase patient satisfaction. Our AI agents send timely reminders, educational content, and personalized outreach campaigns." },
-                ]}
-                footerTitle="Post Discharge, Pre-hospital & Device Monitoring"
-                footerDescription="We also offer specialized programs for post-discharge follow-up care, pre-hospital admission preparation, and seamless device monitoring integration. Every program is customizable to your practice's unique workflow."
-              />
+              <div className="grid md:grid-cols-2 gap-8 mb-12">
+                {/* Category A: Clinical Operations */}
+                <Card className="border-2 border-blue-200">
+                  <CardHeader>
+                    <CardTitle className="text-2xl text-blue-600">Clinical Operations</CardTitle>
+                    <CardDescription className="text-base">The "Joe" & "Jenny" Suite - Focus on revenue and health outcomes</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
+                        <div>
+                          <h4 className="font-semibold">Remote Patient Monitoring (RPM)</h4>
+                          <p className="text-sm text-gray-600">Automate daily vitals collection and adherence checks.</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
+                        <div>
+                          <h4 className="font-semibold">Perioperative Support</h4>
+                          <p className="text-sm text-gray-600">Guided workflows for Pre-Hospitalization preparation and Post-Discharge recovery monitoring.</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
+                        <div>
+                          <h4 className="font-semibold">Care Gap Management</h4>
+                          <p className="text-sm text-gray-600">Proactive outreach to ensure HEDIS compliance and health check-ins.</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
+                        <div>
+                          <h4 className="font-semibold">Chronic Care Management</h4>
+                          <p className="text-sm text-gray-600">Consistent follow-ups for long-term health tracking.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* Category B: Patient Experience */}
+                <Card className="border-2 border-purple-200">
+                  <CardHeader>
+                    <CardTitle className="text-2xl text-purple-600">Patient Experience & Engagement</CardTitle>
+                    <CardDescription className="text-base">Holistic tools to keep patients happy and engaged during recovery</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-purple-600 mt-1 flex-shrink-0" />
+                        <div>
+                          <h4 className="font-semibold">Concierge Entertainment</h4>
+                          <p className="text-sm text-gray-600">Bedside access to Netflix, Apple TV, Audiobooks, and Music.</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-purple-600 mt-1 flex-shrink-0" />
+                        <div>
+                          <h4 className="font-semibold">Wellness & Lifestyle</h4>
+                          <p className="text-sm text-gray-600">Integrated modules for News, Horoscopes, and Spiritual Support (Prayer) to support mental well-being.</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle className="w-5 h-5 text-purple-600 mt-1 flex-shrink-0" />
+                        <div>
+                          <h4 className="font-semibold">Healthcare Marketing</h4>
+                          <p className="text-sm text-gray-600">Automated campaigns to keep your practice top-of-mind.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             </ParallaxSection>
+          </div>
+        </section>
+
+        {/* The Solution Section - Your Workforce Multiplied */}
+        <section id="agents" className="py-20 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">Your Workforce, Multiplied</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Jenny and Joe don't just route calls—they resolve workflows. From front-desk admin to clinical monitoring, our agents operate as an extension of your team.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <Card className="text-center hover:shadow-xl transition-shadow">
+                <CardHeader>
+                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle className="w-8 h-8 text-blue-600" />
+                  </div>
+                  <CardTitle>Full EHR Integration</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">We don't just read data; we write it. Updates sync to your schedule and patient charts in real-time.</p>
+                </CardContent>
+              </Card>
+              <Card className="text-center hover:shadow-xl transition-shadow">
+                <CardHeader>
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <TrendingUp className="w-8 h-8 text-green-600" />
+                  </div>
+                  <CardTitle>Intelligent Triage</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Jenny handles the routine (80% of volume) and instantly escalates complex emotional needs to your human staff.</p>
+                </CardContent>
+              </Card>
+              <Card className="text-center hover:shadow-xl transition-shadow">
+                <CardHeader>
+                  <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Users className="w-8 h-8 text-purple-600" />
+                  </div>
+                  <CardTitle>Clinical Authority</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">Unlike basic chatbots, Joe is trained on medical protocols to monitor recovery and flag risks accurately.</p>
+                </CardContent>
+              </Card>
+              <Card className="text-center hover:shadow-xl transition-shadow">
+                <CardHeader>
+                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Clock className="w-8 h-8 text-orange-600" />
+                  </div>
+                  <CardTitle>Rapid Deployment</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-600">No 6-month implementations. Use our expert-approved templates to go live in under 7 days.</p>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </section>
 
@@ -73,8 +306,51 @@ export default function HomePage() {
           <RuixenSection />
         </section>
 
-        {/* Process Flow */}
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        {/* The Carify Advantage - ROI Section */}
+        <section id="advantage" className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">Why Leading Practices Choose Carify</h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+              <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200">
+                <CardHeader>
+                  <CardTitle className="text-3xl font-bold text-blue-600">30% Lower Overhead</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-700">We don't just save minutes; we remove entire workflows. By automating benefits verification and hold times, we slash operational costs by a third.</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-200">
+                <CardHeader>
+                  <CardTitle className="text-3xl font-bold text-green-600">4x More Preventive Visits</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-700">Jenny proactively mines your data to find care gaps, quadrupling the volume of high-value wellness visits and screenings without adding staff work.</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-gradient-to-br from-purple-50 to-purple-100 border-2 border-purple-200">
+                <CardHeader>
+                  <CardTitle className="text-3xl font-bold text-purple-600">85% First-Contact Resolution</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-700">Jenny doesn't just take messages. She resolves inquiries—scheduling, billing, and intake—completely autonomously.</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-gradient-to-br from-orange-50 to-orange-100 border-2 border-orange-200">
+                <CardHeader>
+                  <CardTitle className="text-3xl font-bold text-orange-600">&lt;3% No-Show Rate</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-700">Our predictive engine spots potential cancellations early and refills the slot instantly, keeping provider utilization above 97%.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Process Flow - How it Works */}
+        <section id="workflow" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <WordFadeIn words="How It Works" className="text-4xl md:text-5xl mb-4" />
@@ -290,9 +566,10 @@ export default function HomePage() {
         ]}
         legalLinks={[
           { href: "/privacy", label: "Privacy" },
-          { href: "/terms", label: "Terms" }
+          { href: "/terms", label: "Terms" },
+          { href: "/baa", label: "BAA (Business Associate Agreement)" }
         ]}
-        copyright={{ text: "© 2024 Carify Health", license: "All rights reserved" }}
+        copyright={{ text: "© 2026 Carify Health AI. All rights reserved.", license: "100% HIPAA Compliant" }}
       />
     </div>
   );

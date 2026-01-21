@@ -14,8 +14,25 @@ export default function Header() {
     setMobileMenuOpen(false);
   };
 
+  const handleNavClick = (href: string) => {
+    if (href.startsWith('/#')) {
+      const id = href.substring(2);
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      setLocation(href);
+    }
+    setMobileMenuOpen(false);
+  };
+
   const navItems = [
     { href: "/", label: "Home", testId: "link-home" },
+    { href: "/#solutions", label: "Solutions", testId: "link-solutions" },
+    { href: "/#agents", label: "Agents", testId: "link-agents" },
+    { href: "/#advantage", label: "Results", testId: "link-results" },
+    { href: "/#workflow", label: "How it Works", testId: "link-workflow" },
     { href: "/roi-calculator", label: "ROI Calculator", testId: "link-roi-calculator" },
     { href: "/why-carify", label: "Why Carify", testId: "link-why-carify" },
     { href: "/use-cases", label: "Use Cases", testId: "link-use-cases" }
@@ -42,25 +59,26 @@ export default function Header() {
 
           <nav className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <Link key={item.href} href={item.href} data-testid={item.testId}>
-                <motion.span 
-                  className={`text-sm font-medium transition-all duration-300 hover:text-blue-600 relative ${
-                    location === item.href ? 'text-blue-600' : 'text-gray-700'
-                  }`}
-                  whileHover={{ y: -2 }}
-                >
-                  {item.label}
-                  {location === item.href && (
-                    <motion.div
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"
-                      layoutId="activeTab"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  )}
-                </motion.span>
-              </Link>
+              <motion.span
+                key={item.href}
+                onClick={() => handleNavClick(item.href)}
+                className={`text-sm font-medium transition-all duration-300 hover:text-blue-600 relative cursor-pointer ${
+                  location === item.href ? 'text-blue-600' : 'text-gray-700'
+                }`}
+                whileHover={{ y: -2 }}
+                data-testid={item.testId}
+              >
+                {item.label}
+                {location === item.href && (
+                  <motion.div
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"
+                    layoutId="activeTab"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
+              </motion.span>
             ))}
             
             <motion.div
@@ -121,18 +139,18 @@ export default function Header() {
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
               {navItems.map((item, index) => (
-                <Link key={item.href} href={item.href} data-testid={`link-mobile-${item.href.replace('/', '') || 'home'}`}>
-                  <motion.div 
-                    className="block px-4 py-3 text-sm font-medium hover:bg-white/50 rounded-xl mx-2 transition-all duration-300 text-gray-700 hover:text-blue-600" 
-                    onClick={() => setMobileMenuOpen(false)}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    whileHover={{ x: 5 }}
-                  >
-                    {item.label}
-                  </motion.div>
-                </Link>
+                <motion.div
+                  key={item.href}
+                  className="block px-4 py-3 text-sm font-medium hover:bg-white/50 rounded-xl mx-2 transition-all duration-300 text-gray-700 hover:text-blue-600 cursor-pointer"
+                  onClick={() => handleNavClick(item.href)}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  whileHover={{ x: 5 }}
+                  data-testid={`link-mobile-${item.href.replace('/', '').replace('#', '') || 'home'}`}
+                >
+                  {item.label}
+                </motion.div>
               ))}
               <motion.div 
                 className="px-4 pt-2"
