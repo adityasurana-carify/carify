@@ -30,6 +30,8 @@ export default function BookDemoPage() {
     email: '',
     phone: '',
     companyName: '',
+    preferredDate: '',
+    preferredTime: '',
     solutionInterests: [] as string[],
     patientVolume: '',
     note: ''
@@ -114,6 +116,30 @@ export default function BookDemoPage() {
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                 />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <Label htmlFor="preferredDate">Preferred Date *</Label>
+                  <Input
+                    id="preferredDate"
+                    type="date"
+                    value={formData.preferredDate}
+                    onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
+                    min={new Date().toISOString().split('T')[0]}
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="preferredTime">Preferred Time *</Label>
+                  <Input
+                    id="preferredTime"
+                    type="time"
+                    value={formData.preferredTime}
+                    onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
+                    required
+                  />
+                </div>
               </div>
 
               <div className="space-y-3">

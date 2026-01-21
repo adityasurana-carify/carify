@@ -29,7 +29,7 @@ export default function WhyCarifyPage() {
           cards={[
             { title: "40%", description: "Reduction in front-desk workload - Our AI agents handle routine calls, appointment scheduling, and insurance verification, freeing your staff to focus on high-value patient interactions and complex cases." },
             { title: "3×", description: "Faster response time for patient inquiries - Jenny answers calls instantly, 24/7, eliminating hold times and voicemail backlogs. Patients get immediate answers to common questions without waiting." },
-            { title: "25%", description: "Increase in completed follow-up appointments - Ryan's proactive outreach and automated reminders ensure patients show up for critical follow-up care, improving outcomes and capturing revenue." },
+            { title: "25%", description: "Increase in completed follow-up appointments - Joe's proactive outreach and automated reminders ensure patients show up for critical follow-up care, improving outcomes and capturing revenue." },
             { title: "Significant", description: "Improvements in patient satisfaction scores - Patients appreciate instant responses, multilingual support, and personalized care coordination. No more frustrating phone trees or missed callbacks." },
             { title: "Dramatically", description: "Fewer missed calls and abandoned voicemails - With 24/7 AI coverage, every call is answered immediately. No more lost opportunities, frustrated patients, or revenue leakage from unanswered inquiries." },
           ]}

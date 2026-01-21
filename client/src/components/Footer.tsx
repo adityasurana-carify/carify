@@ -54,8 +54,8 @@ export default function Footer() {
         </ParallaxSection>
         
         {/* Footer Links Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
-          {/* Company Info */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          {/* Brand Column */}
           <motion.div 
             className="space-y-4"
             initial={{ opacity: 0, y: 20 }}
@@ -101,7 +101,7 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* Product Links */}
+          {/* Product Column */}
           <motion.div 
             className="space-y-4"
             initial={{ opacity: 0, y: 20 }}
@@ -113,8 +113,8 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { label: "Platform" },
-                { label: "Jenny (Admin Agent)" },
-                { label: "Joe (Clinical Agent)" },
+                { label: "Jenny - Admin Agent" },
+                { label: "Joe (Care Manager)" },
                 { label: "Integrations" },
                 { label: "Security (SOC2/HIPAA)" }
               ].map((link, index) => (
@@ -130,43 +130,13 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Quick Links */}
+          {/* Support Column */}
           <motion.div 
             className="space-y-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <h3 className="text-lg font-bold text-white">Quick Links</h3>
-            <ul className="space-y-3">
-              {[
-                { href: "/", label: "Home" },
-                { href: "/why-carify", label: "Why Carify" },
-                { href: "/use-cases", label: "Use Cases" },
-                { href: "/roi-calculator", label: "ROI Calculator" }
-              ].map((link, index) => (
-                <li key={link.href}>
-                  <Link href={link.href}>
-                    <motion.span 
-                      className="text-sm text-blue-100 hover:text-white transition-colors duration-300 cursor-pointer"
-                      whileHover={{ x: 5 }}
-                    >
-                      {link.label}
-                    </motion.span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Support Links */}
-          <motion.div 
-            className="space-y-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
           >
             <h3 className="text-lg font-bold text-white">Support</h3>
             <ul className="space-y-3">
@@ -183,7 +153,7 @@ export default function Footer() {
                   href="https://wa.me/15550123"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-blue-100 hover:text-white transition-colors duration-300 flex items-center gap-2"
+                  className="text-sm text-blue-100 hover:text-white transition-colors duration-300"
                   whileHover={{ x: 5 }}
                 >
                   Priority Support: WhatsApp
@@ -201,13 +171,13 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Legal Links */}
+          {/* Legal Column */}
           <motion.div 
             className="space-y-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
           >
             <h3 className="text-lg font-bold text-white">Legal</h3>
             <ul className="space-y-3">

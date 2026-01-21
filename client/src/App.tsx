@@ -15,6 +15,8 @@ const HomePage = lazy(() => import("@/pages/home").catch(() => ({ default: () =>
 const ROICalculatorPage = lazy(() => import("@/pages/roi-calculator").catch(() => ({ default: () => <div>Error loading ROI Calculator</div> })));
 const WhyCarifyPage = lazy(() => import("@/pages/why-carify").catch(() => ({ default: () => <div>Error loading Why Carify page</div> })));
 const UseCasesPage = lazy(() => import("@/pages/use-cases").catch(() => ({ default: () => <div>Error loading Use Cases page</div> })));
+const BlogsPage = lazy(() => import("@/pages/blogs").catch(() => ({ default: () => <div>Error loading Blogs page</div> })));
+const ResourcesPage = lazy(() => import("@/pages/resources").catch(() => ({ default: () => <div>Error loading Resources page</div> })));
 const BookDemoPage = lazy(() => import("@/pages/book-demo").catch(() => ({ default: () => <div>Error loading Book Demo page</div> })));
 const ScheduleDemoPage = lazy(() => import("@/pages/schedule-demo").catch(() => ({ default: () => <div>Error loading Schedule Demo page</div> })));
 const RuixenDemoPage = lazy(() => import("@/pages/ruixen-demo").catch(() => ({ default: () => <div>Error loading Ruixen Demo page</div> })));
@@ -84,6 +86,16 @@ function Router() {
           <Route path="/use-cases">
             <PageTransition>
               <UseCasesPage />
+            </PageTransition>
+          </Route>
+          <Route path="/blogs">
+            <PageTransition>
+              <BlogsPage />
+            </PageTransition>
+          </Route>
+          <Route path="/resources">
+            <PageTransition>
+              <ResourcesPage />
             </PageTransition>
           </Route>
           <Route path="/book-demo">

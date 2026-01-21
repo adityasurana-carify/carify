@@ -354,7 +354,7 @@ export default function HomePage() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <WordFadeIn words="How It Works" className="text-4xl md:text-5xl mb-4" />
-              <p className="text-xl text-gray-600">Seamless automation from call to action</p>
+              <p className="text-xl text-gray-600">Go Live in 7 Days.</p>
             </div>
             <ParallaxSection>
               <ProcessFlow />
@@ -406,7 +406,7 @@ export default function HomePage() {
               
               <div className="bg-white p-8 rounded-2xl shadow-xl mb-12">
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  At Carify Health, we believe that the staffing crisis shouldn't dictate the quality of patient care. While others focus on simple call routing, we focus on Clinical Capacity Orchestration. We integrate Jenny and Ryan directly into your EHR to act as a force multiplier for your team—predicting patient needs, capturing lost revenue, and ensuring your practice operates at its absolute peak potential.
+                  At Carify Health, we believe that the staffing crisis shouldn't dictate the quality of patient care. While others focus on simple call routing, we focus on Clinical Capacity Orchestration. We integrate Jenny and Joe directly into your EHR to act as a force multiplier for your team—predicting patient needs, capturing lost revenue, and ensuring your practice operates at its absolute peak potential.
                 </p>
               </div>
 
@@ -526,7 +526,7 @@ export default function HomePage() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <FeaturedSectionStats
               title="The Founder's Perspective: Our Core Philosophy"
-              subtitle="A practice shouldn't be defined by how many calls it can take, but by how many lives it can proactively manage. We built Carify Health to move healthcare from 'reactive' to 'predictive.' When Jenny handles the data and Ryan handles the monitoring, your clinicians are finally free to handle the healing."
+              subtitle="A practice shouldn't be defined by how many calls it can take, but by how many lives it can proactively manage. We built Carify Health to move healthcare from 'reactive' to 'predictive.' When Jenny handles the data and Joe handles the monitoring, your clinicians are finally free to handle the healing."
               stats={[
                 { value: "75%", label: "Calls Handled" },
                 { value: "2+ hrs", label: "Saved Daily" },
@@ -558,15 +558,23 @@ export default function HomePage() {
       <Footer
         logo={<div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">C</div>}
         brandName="Carify Health"
+        brandDescription="Moving healthcare from Reactive to Predictive."
         socialLinks={[{ icon: <Phone className="h-5 w-5" />, href: "tel:+1-555-0123", label: "Call Us" }]}
-        mainLinks={[
-          { href: "/", label: "Home" },
-          { href: "/why-carify", label: "Why Carify" },
-          { href: "/use-cases", label: "Use Cases" }
+        productLinks={[
+          { href: "/platform", label: "Platform" },
+          { href: "/jenny", label: "Jenny - Admin Agent" },
+          { href: "/ryan", label: "Joe (Care Manager)" },
+          { href: "/integrations", label: "Integrations" },
+          { href: "/security", label: "Security (SOC2/HIPAA)" }
+        ]}
+        supportLinks={[
+          { href: "/help", label: "Help Center" },
+          { href: "https://wa.me/15550123", label: "Priority Support: WhatsApp" },
+          { href: "mailto:contact@carify.health", label: "Email: contact@carify.health" }
         ]}
         legalLinks={[
-          { href: "/privacy", label: "Privacy" },
-          { href: "/terms", label: "Terms" },
+          { href: "/privacy", label: "Privacy Policy" },
+          { href: "/terms", label: "Terms of Service" },
           { href: "/baa", label: "BAA (Business Associate Agreement)" }
         ]}
         copyright={{ text: "© 2026 Carify Health AI. All rights reserved.", license: "100% HIPAA Compliant" }}
