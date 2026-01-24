@@ -1,8 +1,7 @@
 import Header from "@/components/Header";
-import { Footer } from "@/components/ui/footer";
+import GlobalFooter from "@/components/GlobalFooter";
 import { Phone, Calculator, ArrowRight } from "lucide-react";
 import ROICalculator from "@/components/ROICalculator";
-import Testimonials from "@/components/Testimonials";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useDemoModal } from "@/hooks/use-demo-modal";
 import Featured_05 from "@/components/ui/globe-feature-section";
@@ -88,39 +87,11 @@ export default function ROICalculatorPage() {
           </div>
         </section>
 
-        <ScrollCard delay={200}>
-          <Testimonials />
-        </ScrollCard>
       </main>
       
       <Featured_05 />
       
-      <Footer
-        logo={<Calculator className="h-8 w-8 text-blue-600" />}
-        brandName="Carify Health"
-        socialLinks={[
-          {
-            icon: <Phone className="h-5 w-5" />,
-            href: "tel:+1-555-0123",
-            label: "Call Us"
-          }
-        ]}
-        mainLinks={[
-          { href: "/", label: "Home" },
-          { href: "/why-carify", label: "Why Carify" },
-          { href: "/use-cases", label: "Use Cases" },
-          { href: "/roi-calculator", label: "ROI Calculator" }
-        ]}
-        legalLinks={[
-          { href: "/privacy", label: "Privacy" },
-          { href: "/terms", label: "Terms" },
-          { href: "/baa", label: "BAA (Business Associate Agreement)" }
-        ]}
-        copyright={{
-          text: "© 2026 Carify Health AI. All rights reserved.",
-          license: "100% HIPAA Compliant"
-        }}
-      />
+      <GlobalFooter />
     </div>
   );
 }

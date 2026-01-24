@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/ui/hero-section";
-import { Footer } from "@/components/ui/footer";
+import GlobalFooter from "@/components/GlobalFooter";
 import ParallaxSection from "@/components/ParallaxSection";
 import { Button } from "@/components/ui/button";
 import { Phone, Play, CheckCircle, TrendingUp, Users, Clock } from "lucide-react";
@@ -285,21 +285,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* AI Inclusive Healthcare */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <FeaturedSectionStats
-              title="AI Inclusive Healthcare - Best AI Companion for your Nursing Staff"
-              subtitle="Save up to 40% care effort by using AI Nurse & Agents for custom programs based on RPM, Health Monitoring (Smart Gadgets), Elderly Patient Care, Hospital Surveys (Post Discharge as well as Adherence related patient care)."
-              stats={[
-                { value: "40%", label: "Care Effort Saved" },
-                { value: "24/7", label: "Availability" },
-                { value: "100%", label: "HIPAA Compliant" },
-                { value: "8+", label: "Programs" },
-              ]}
-            />
-          </div>
-        </section>
+
 
         {/* Ruixen Feature Section */}
         <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
@@ -383,41 +369,9 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Comparison Table */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <WordFadeIn words="Traditional vs Carify Health" className="text-4xl md:text-5xl mb-4" />
-              <p className="text-xl text-gray-600">See the difference AI makes</p>
-            </div>
-            <ParallaxSection className="max-w-5xl mx-auto">
-              <ComparisonTable />
-            </ParallaxSection>
-          </div>
-        </section>
 
-        {/* Why Carify Health */}
-        <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <ParallaxSection className="max-w-5xl mx-auto">
-              <div className="text-center mb-8">
-                <WordFadeIn words="Why Carify Health" className="text-4xl md:text-5xl" />
-              </div>
-              
-              <div className="bg-white p-8 rounded-2xl shadow-xl mb-12">
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  At Carify Health, we believe that the staffing crisis shouldn't dictate the quality of patient care. While others focus on simple call routing, we focus on Clinical Capacity Orchestration. We integrate Jenny and Joe directly into your EHR to act as a force multiplier for your team—predicting patient needs, capturing lost revenue, and ensuring your practice operates at its absolute peak potential.
-                </p>
-              </div>
 
-              <h3 className="text-3xl font-bold mb-8 text-center text-purple-600">
-                The Carify Advantage: Quantifiable Outcomes
-              </h3>
 
-              <MetricsDashboard />
-            </ParallaxSection>
-          </div>
-        </section>
 
         {/* FAQs */}
         <section className="py-20 bg-white">
@@ -518,24 +472,9 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Testimonials */}
-        <TestimonialsDemo />
 
-        {/* Founder's Perspective */}
-        <section className="py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <FeaturedSectionStats
-              title="The Founder's Perspective: Our Core Philosophy"
-              subtitle="A practice shouldn't be defined by how many calls it can take, but by how many lives it can proactively manage. We built Carify Health to move healthcare from 'reactive' to 'predictive.' When Jenny handles the data and Joe handles the monitoring, your clinicians are finally free to handle the healing."
-              stats={[
-                { value: "75%", label: "Calls Handled" },
-                { value: "2+ hrs", label: "Saved Daily" },
-                { value: "<5%", label: "No-Show Rate" },
-                { value: "30 days", label: "Go Live" },
-              ]}
-            />
-          </div>
-        </section>
+
+
 
         {/* CTA */}
         <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
@@ -555,30 +494,7 @@ export default function HomePage() {
         </section>
       </main>
       
-      <Footer
-        logo={<div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">C</div>}
-        brandName="Carify Health"
-        brandDescription="Moving healthcare from Reactive to Predictive."
-        socialLinks={[{ icon: <Phone className="h-5 w-5" />, href: "tel:+1-555-0123", label: "Call Us" }]}
-        productLinks={[
-          { href: "/platform", label: "Platform" },
-          { href: "/jenny", label: "Jenny - Admin Agent" },
-          { href: "/ryan", label: "Joe (Care Manager)" },
-          { href: "/integrations", label: "Integrations" },
-          { href: "/security", label: "Security (SOC2/HIPAA)" }
-        ]}
-        supportLinks={[
-          { href: "/help", label: "Help Center" },
-          { href: "https://wa.me/15550123", label: "Priority Support: WhatsApp" },
-          { href: "mailto:contact@carify.health", label: "Email: contact@carify.health" }
-        ]}
-        legalLinks={[
-          { href: "/privacy", label: "Privacy Policy" },
-          { href: "/terms", label: "Terms of Service" },
-          { href: "/baa", label: "BAA (Business Associate Agreement)" }
-        ]}
-        copyright={{ text: "© 2026 Carify Health AI. All rights reserved.", license: "100% HIPAA Compliant" }}
-      />
+      <GlobalFooter />
     </div>
   );
 }

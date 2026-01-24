@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import { Footer } from "@/components/ui/footer";
+import GlobalFooter from "@/components/GlobalFooter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -420,58 +420,11 @@ export default function UseCasesPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollCard className="text-center">
-            <WordFadeIn words="Ready to Transform Your Healthcare Operations?" className="text-5xl md:text-7xl font-bold mb-6" />
-            <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-              See how Jenny can streamline your workflows and improve patient outcomes across all these use cases.
-            </p>
-            <Button size="lg" variant="secondary" onClick={scrollToDemo} className="text-lg px-8 py-3">
-              Schedule Your Demo Today
-            </Button>
-          </ScrollCard>
-        </div>
-      </section>
 
-      {/* Testimonials Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollCard>
-            <TestimonialsDemo />
-          </ScrollCard>
-        </div>
-      </section>
 
       <Featured_05 />
 
-      <Footer
-        logo={<Users className="h-8 w-8 text-blue-600" />}
-        brandName="Carify Health"
-        socialLinks={[
-          {
-            icon: <Phone className="h-5 w-5" />,
-            href: "tel:+1-555-0123",
-            label: "Call Us"
-          }
-        ]}
-        mainLinks={[
-          { href: "/", label: "Home" },
-          { href: "/why-carify", label: "Why Carify" },
-          { href: "/use-cases", label: "Use Cases" },
-          { href: "/roi-calculator", label: "ROI Calculator" }
-        ]}
-        legalLinks={[
-          { href: "/privacy", label: "Privacy" },
-          { href: "/terms", label: "Terms" },
-          { href: "/baa", label: "BAA (Business Associate Agreement)" }
-        ]}
-        copyright={{
-          text: "© 2026 Carify Health AI. All rights reserved.",
-          license: "100% HIPAA Compliant"
-        }}
-      />
+      <GlobalFooter />
     </div>
   );
 }

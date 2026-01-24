@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'wouter';
 import Header from '@/components/Header';
-import { Footer } from '@/components/ui/footer';
+import GlobalFooter from '@/components/GlobalFooter';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -95,21 +95,7 @@ Time Zone: ${selectedTimeZone}
             </div>
           </div>
         </main>
-        <Footer
-          logo={<div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">C</div>}
-          brandName="Carify Health"
-          socialLinks={[{ icon: <Phone className="h-5 w-5" />, href: "tel:+1-555-0123", label: "Call Us" }]}
-          mainLinks={[
-            { href: "/", label: "Home" },
-            { href: "/why-carify", label: "Why Carify" },
-            { href: "/use-cases", label: "Use Cases" }
-          ]}
-          legalLinks={[
-            { href: "/privacy", label: "Privacy" },
-            { href: "/terms", label: "Terms" }
-          ]}
-          copyright={{ text: "© 2024 Carify Health", license: "All rights reserved" }}
-        />
+        <GlobalFooter />
       </div>
     );
   }
@@ -183,21 +169,7 @@ Time Zone: ${selectedTimeZone}
           </div>
         </div>
       </main>
-      <Footer
-        logo={<div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">C</div>}
-        brandName="Carify Health"
-        socialLinks={[{ icon: <Phone className="h-5 w-5" />, href: "tel:+1-555-0123", label: "Call Us" }]}
-        mainLinks={[
-          { href: "/", label: "Home" },
-          { href: "/why-carify", label: "Why Carify" },
-          { href: "/use-cases", label: "Use Cases" }
-        ]}
-        legalLinks={[
-          { href: "/privacy", label: "Privacy" },
-          { href: "/terms", label: "Terms" }
-        ]}
-        copyright={{ text: "© 2024 Carify Health", license: "All rights reserved" }}
-      />
+      <GlobalFooter />
     </div>
   );
 }

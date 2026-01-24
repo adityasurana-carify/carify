@@ -132,39 +132,6 @@ export default function RuixenSection() {
           </div>
         </div>
       </div>
-      
-      {/* Stats and Testimonial Section */}
-      <div className="mt-12 sm:mt-16 lg:mt-20 grid gap-8 lg:grid-cols-2 lg:gap-12 xl:gap-16">
-        <div className="flex justify-center items-center p-4 sm:p-6">
-          <div className="grid grid-cols-3 gap-6 sm:gap-8 lg:gap-6 xl:gap-8 w-full text-center sm:text-left">
-            <div className="space-y-2 sm:space-y-3">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900 dark:text-white">75%</div>
-              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-400">Calls Handled</p>
-            </div>
-            <div className="space-y-2 sm:space-y-3">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900 dark:text-white">2+ hrs</div>
-              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-400">Saved Daily</p>
-            </div>
-            <div className="space-y-2 sm:space-y-3">
-              <div className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900 dark:text-white">&lt;5%</div>
-              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-400">No-Show Rate</p>
-            </div>
-          </div>
-        </div>
-        <div className="relative">
-          <blockquote className="border-l-2 border-gray-200 dark:border-gray-700 pl-4 sm:pl-6 lg:pl-8 text-gray-700 dark:text-gray-400">
-            <p className="text-sm sm:text-base lg:text-lg leading-relaxed">Using Carify Health has been like unlocking a new level of productivity. It's the perfect fusion of AI automation and healthcare expertise, enabling us to deliver better patient care.</p>
-            <div className="mt-4 sm:mt-6 space-y-2 sm:space-y-3">
-              <cite className="block font-medium text-sm sm:text-base text-gray-900 dark:text-white">Dr. Sarah Johnson, Medical Director</cite>
-              <img 
-                className="h-8 sm:h-10 w-fit dark:invert" 
-                src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&h=80&fit=crop" 
-                alt="Healthcare Practice Logo" 
-              />
-            </div>
-          </blockquote>
-        </div>
-      </div>
     </section>
   )
 }

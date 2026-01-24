@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
-import { Footer } from "@/components/ui/footer";
+import GlobalFooter from "@/components/GlobalFooter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -235,30 +235,7 @@ export default function Blogs() {
         </section>
       </main>
 
-      <Footer
-        logo={<div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">C</div>}
-        brandName="Carify Health"
-        brandDescription="Moving healthcare from Reactive to Predictive."
-        socialLinks={[{ icon: <Phone className="h-5 w-5" />, href: "tel:+1-555-0123", label: "Call Us" }]}
-        productLinks={[
-          { href: "/platform", label: "Platform" },
-          { href: "/jenny", label: "Jenny - Admin Agent" },
-          { href: "/ryan", label: "Joe (Care Manager)" },
-          { href: "/integrations", label: "Integrations" },
-          { href: "/security", label: "Security (SOC2/HIPAA)" }
-        ]}
-        supportLinks={[
-          { href: "/help", label: "Help Center" },
-          { href: "https://wa.me/15550123", label: "Priority Support: WhatsApp" },
-          { href: "mailto:contact@carify.health", label: "Email: contact@carify.health" }
-        ]}
-        legalLinks={[
-          { href: "/privacy", label: "Privacy Policy" },
-          { href: "/terms", label: "Terms of Service" },
-          { href: "/baa", label: "BAA (Business Associate Agreement)" }
-        ]}
-        copyright={{ text: "© 2026 Carify Health AI. All rights reserved.", license: "100% HIPAA Compliant" }}
-      />
+      <GlobalFooter />
     </div>
   );
 }

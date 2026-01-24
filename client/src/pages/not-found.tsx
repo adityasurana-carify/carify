@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Footer } from "@/components/ui/footer";
+import GlobalFooter from "@/components/GlobalFooter";
 import { AlertCircle, Home, Phone } from "lucide-react";
 import { Link } from "wouter";
 
@@ -29,31 +29,7 @@ export default function NotFound() {
         </Card>
       </main>
       
-      <Footer
-        logo={<AlertCircle className="h-8 w-8 text-red-600" />}
-        brandName="Carify Health"
-        socialLinks={[
-          {
-            icon: <Phone className="h-5 w-5" />,
-            href: "tel:+1-555-0123",
-            label: "Call Us"
-          }
-        ]}
-        mainLinks={[
-          { href: "/", label: "Home" },
-          { href: "/why-carify", label: "Why Carify" },
-          { href: "/use-cases", label: "Use Cases" },
-          { href: "/roi-calculator", label: "ROI Calculator" }
-        ]}
-        legalLinks={[
-          { href: "/privacy", label: "Privacy" },
-          { href: "/terms", label: "Terms" }
-        ]}
-        copyright={{
-          text: "© 2024 Carify Health",
-          license: "Page not found"
-        }}
-      />
+      <GlobalFooter />
     </div>
   );
 }

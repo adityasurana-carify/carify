@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/ui/hero-section";
-import { Footer } from "@/components/ui/footer";
+import GlobalFooter from "@/components/GlobalFooter";
 import { GlowCard } from "@/components/ui/spotlight-card";
 import ProductValues from "@/components/ProductValues";
 import UseCases from "@/components/UseCases";
@@ -51,10 +51,6 @@ export default function WhyCarifyPage() {
         <UseCases />
 
         <CarifyFeatures />
-
-        <Testimonials />
-
-        <CaseStudies />
 
         <section className="py-16 md:py-24 bg-muted">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -130,31 +126,7 @@ export default function WhyCarifyPage() {
       
       <Featured_05 />
       
-      <Footer
-        logo={<Shield className="h-8 w-8 text-blue-600" />}
-        brandName="Carify Health"
-        socialLinks={[
-          {
-            icon: <Phone className="h-5 w-5" />,
-            href: "tel:+1-555-0123",
-            label: "Call Us"
-          }
-        ]}
-        mainLinks={[
-          { href: "/", label: "Home" },
-          { href: "/why-carify", label: "Why Carify" },
-          { href: "/use-cases", label: "Use Cases" },
-          { href: "/roi-calculator", label: "ROI Calculator" }
-        ]}
-        legalLinks={[
-          { href: "/privacy", label: "Privacy" },
-          { href: "/terms", label: "Terms" }
-        ]}
-        copyright={{
-          text: "© 2024 Carify Health",
-          license: "Transforming healthcare with AI"
-        }}
-      />
+      <GlobalFooter />
     </div>
   );
 }
