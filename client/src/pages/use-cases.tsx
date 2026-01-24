@@ -131,7 +131,7 @@ export default function UseCasesPage() {
           </button>
         </div>
 
-        <h1 className="text-4xl md:text-7xl font-bold max-w-[850px] text-center mx-auto mt-8 text-gray-900 animate-fade-in-up animation-delay-200">
+        <h1 className="text-5xl md:text-7xl font-bold max-w-[850px] text-center mx-auto mt-8 text-gray-900 animate-fade-in-up animation-delay-200">
           Use Cases
         </h1>
 

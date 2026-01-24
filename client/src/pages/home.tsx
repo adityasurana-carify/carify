@@ -99,7 +99,7 @@ export default function HomePage() {
               transition={{ duration: 0.6 }}
               className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 md:p-12 shadow-xl"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">The Founder's Philosophy</h2>
+              <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">The Founder's Philosophy</h2>
               <p className="text-lg md:text-xl text-gray-700 leading-relaxed italic">
                 "A practice shouldn't be defined by how many calls it can take, but by how many lives it can proactively manage. We built Carify Health to move healthcare from Reactive to Predictive."
               </p>
@@ -118,7 +118,7 @@ export default function HomePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Don't Settle for Half the Solution</h2>
+              <h2 className="text-5xl md:text-7xl font-bold mb-6">Don't Settle for Half the Solution</h2>
               <p className="text-xl text-blue-100 mb-12">
                 Most AI agents only handle the phone lines. Carify manages the entire patient journey—from the first call to full recovery.
               </p>
@@ -144,7 +144,7 @@ export default function HomePage() {
         <section id="solutions" className="py-20 bg-gradient-to-br from-blue-50 to-cyan-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Select a Care Program or Build Your Own</h2>
+              <h2 className="text-5xl md:text-7xl font-bold mb-4">Select a Care Program or Build Your Own</h2>
               <p className="text-xl text-gray-600">Launch immediately with our pre-built workflows or customize your agent in minutes.</p>
             </div>
             
@@ -231,7 +231,7 @@ export default function HomePage() {
         <section id="agents" className="py-20 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Your Workforce, Multiplied</h2>
+              <h2 className="text-5xl md:text-7xl font-bold mb-4">Your Workforce, Multiplied</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Jenny and Joe don't just route calls—they resolve workflows. From front-desk admin to clinical monitoring, our agents operate as an extension of your team.
               </p>
@@ -296,7 +296,7 @@ export default function HomePage() {
         <section id="advantage" className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">Why Leading Practices Choose Carify</h2>
+              <h2 className="text-5xl md:text-7xl font-bold mb-4">Why Leading Practices Choose Carify</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
               <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200">
@@ -339,7 +339,7 @@ export default function HomePage() {
         <section id="workflow" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <WordFadeIn words="How It Works" className="text-4xl md:text-5xl mb-4" />
+              <WordFadeIn words="How It Works" className="text-5xl md:text-7xl font-bold mb-4" />
               <p className="text-xl text-gray-600">Go Live in 7 Days.</p>
             </div>
             <ParallaxSection>
@@ -359,7 +359,7 @@ export default function HomePage() {
         <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <WordFadeIn words="KEY SERVICE PILLARS" className="text-4xl md:text-5xl mb-6" />
+              <WordFadeIn words="KEY SERVICE PILLARS" className="text-5xl md:text-7xl font-bold mb-6" />
               <p className="text-xl text-gray-600">Comprehensive AI-powered healthcare solutions</p>
             </div>
 
@@ -378,7 +378,7 @@ export default function HomePage() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <ParallaxSection className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
-                <WordFadeIn words="Frequently Asked Questions" className="text-4xl md:text-5xl" />
+                <WordFadeIn words="Frequently Asked Questions" className="text-5xl md:text-7xl font-bold" />
               </div>
 
               <div className="space-y-8">
@@ -476,22 +476,7 @@ export default function HomePage() {
 
 
 
-        {/* CTA */}
-        <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <WordFadeIn words="Ready to Transform Your Practice?" className="text-4xl md:text-5xl mb-6 text-white" />
-            <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Join hundreds of healthcare providers who are already saving time and improving patient care with Carify Health.
-            </p>
-            <Button 
-              size="lg" 
-              onClick={() => setLocation('/book-demo')}
-              className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-6 text-lg"
-            >
-              Book Your Free Demo
-            </Button>
-          </div>
-        </section>
+
       </main>
       
       <GlobalFooter />

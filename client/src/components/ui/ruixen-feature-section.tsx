@@ -76,64 +76,7 @@ const integrations = [
 
 
 export default function RuixenSection() {
-  return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-      <div className="grid grid-cols-1 lg:grid-cols-2 relative">
-        {/* Left Block */}
-        <div className="flex flex-col items-start justify-center border border-gray-200 dark:border-gray-700 p-4 sm:p-6 lg:p-8">
-          {/* Card */}
-          <div className="relative w-full mb-4 sm:mb-6">
-            <div className="absolute inset-x-0 -bottom-2 h-16 sm:h-20 lg:h-24 bg-gradient-to-t from-white dark:from-gray-900 to-transparent z-10"></div>
-            <CardStack items={CARDS} />
-          </div>
-
-          {/* Content */}
-          <h3 className="text-lg sm:text-xl lg:text-2xl font-normal text-gray-900 dark:text-white leading-relaxed">
-            Intuitive Healthcare Dashboard <span className="text-primary">Carify Health</span>{" "}
-            <span className="text-gray-500 dark:text-gray-400 text-sm sm:text-base lg:text-lg"> Simplify your healthcare operations with our AI-powered agents that provide actionable insights and handle 75% of routine calls.</span>
-          </h3>
-        </div>
-
-        {/* Right Block */}
-        <div className="flex flex-col items-center justify-start border border-gray-200 dark:border-gray-700 p-4 sm:p-6 lg:p-8">
-          {/* Content */}
-          <h3 className="text-lg sm:text-xl lg:text-2xl font-normal text-gray-900 dark:text-white mb-4 sm:mb-6 leading-relaxed">
-            Seamless Healthcare Integration <span className="text-primary">Carify Health</span>{" "}
-            <span className="text-gray-500 dark:text-gray-400 text-sm sm:text-base lg:text-lg"> Integrate effortlessly with your existing systems using Carify's HIPAA-compliant architecture and eliminate operational silos.</span>
-          </h3>
-          <div
-            className={cn(
-              "group relative mt-auto w-full inline-flex animate-rainbow cursor-pointer items-center justify-center rounded-xl border-0 bg-white dark:bg-black px-4 sm:px-6 lg:px-8 py-2 font-medium text-primary-foreground transition-colors [background-clip:padding-box,border-box,border-box] [background-origin:border-box] [border:calc(0.08*1rem)_solid_transparent] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
-
-              // before styles
-              "before:absolute before:bottom-[8%] before:left-1/2 before:z-0 before:h-1/5 before:w-3/5 before:-translate-x-1/2 before:animate-rainbow before:bg-[linear-gradient(90deg,hsl(var(--color-1)),hsl(var(--color-5)),hsl(var(--color-3)),hsl(var(--color-4)),hsl(var(--color-2)))] before:bg-[length:200%] before:[filter:blur(calc(0.8*1rem))]",
-            )}
-          >
-            {/* Integration List */}
-            <CardContent className="p-3 sm:p-4 lg:p-6 space-y-3 sm:space-y-4 bg-white dark:bg-black border border-gray-200 dark:border-gray-700 rounded-2xl sm:rounded-3xl z-10 w-full">
-              {integrations.map((item, i) => (
-                <div
-                  key={i}
-                  className="flex items-center justify-between p-2 sm:p-3 border border-gray-200 dark:border-gray-700 rounded-xl sm:rounded-2xl hover:bg-muted/50 transition"
-                >
-                  <div className="flex items-center gap-2 sm:gap-3 flex-1">
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-muted flex items-center justify-center text-sm sm:text-lg flex-shrink-0">
-                      {item.icon}
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <p className="text-xs sm:text-sm font-medium text-foreground truncate">{item.name}</p>
-                      <p className="text-xs text-muted-foreground line-clamp-1 sm:line-clamp-2">{item.desc}</p>
-                    </div>
-                  </div>
-                  <button className="rounded-full border border-gray-200 dark:border-gray-700 p-1.5 sm:p-2 text-xs font-semibold flex-shrink-0 ml-2"><TbHeartPlus className="w-3 h-3 sm:w-4 sm:h-4" /></button>
-                </div>
-              ))}
-            </CardContent>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+  return null;
 }
 
 let interval: any;

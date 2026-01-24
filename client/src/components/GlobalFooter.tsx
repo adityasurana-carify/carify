@@ -4,8 +4,8 @@ import { Footer } from "@/components/ui/footer";
 export default function GlobalFooter() {
   return (
     <Footer
-      logo={<div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">C</div>}
-      brandName="Carify Health"
+      logo={<img src="/logo.png" alt="Carify Health" className="h-20 w-auto" />}
+      brandName=""
       brandDescription="Moving healthcare from Reactive to Predictive."
       socialLinks={[{ icon: <Phone className="h-5 w-5" />, href: "tel:+1-555-0123", label: "Call Us" }]}
       productLinks={[

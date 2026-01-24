@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Sparkles, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-const logo = "/logo.png";
 
 export default function Header() {
   const [location, setLocation] = useLocation();
@@ -40,8 +39,7 @@ export default function Header() {
     {
       label: "Platform",
       dropdown: [
-        { href: "/roi-calculator", label: "ROI Calculator" },
-        { href: "/#integrations", label: "Integrations" }
+        { href: "/roi-calculator", label: "ROI Calculator" }
       ]
     },
     {
@@ -53,23 +51,15 @@ export default function Header() {
     },
     {
       label: "Results",
-      dropdown: [
-        { href: "/#advantage", label: "ROI & Benefits" },
-        { href: "/#testimonials", label: "Case Studies" }
-      ]
+      href: "/#advantage"
     },
     {
       label: "How it Works",
-      dropdown: [
-        { href: "/#workflow", label: "Process Flow" },
-        { href: "/#implementation", label: "Implementation" }
-      ]
+      href: "/#workflow"
     },
     {
       label: "Resources",
-      dropdown: [
-        { href: "/blogs", label: "Blogs" }
-      ]
+      href: "/blogs"
     }
   ];
 
@@ -88,7 +78,7 @@ export default function Header() {
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
             >
-              <img src={logo} alt="Carify Health" className="h-16 md:h-20 drop-shadow-sm" />
+              <img src="/logo.png" alt="Carify Health" className="h-16 md:h-20 drop-shadow-sm" />
             </motion.div>
           </Link>
 
@@ -97,39 +87,51 @@ export default function Header() {
               <div 
                 key={item.label}
                 className="relative"
-                onMouseEnter={() => setActiveDropdown(item.label)}
+                onMouseEnter={() => item.dropdown && setActiveDropdown(item.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <motion.button
-                  className="flex items-center gap-1 text-sm font-medium transition-all duration-300 hover:text-blue-600 text-gray-700"
-                  whileHover={{ y: -2 }}
-                >
-                  {item.label}
-                  <ChevronDown className="w-4 h-4" />
-                </motion.button>
-                
-                <AnimatePresence>
-                  {activeDropdown === item.label && (
-                    <motion.div
-                      className="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-md border border-white/20 rounded-xl shadow-lg py-2"
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.2 }}
+                {item.dropdown ? (
+                  <>
+                    <motion.button
+                      className="flex items-center gap-1 text-sm font-medium transition-all duration-300 hover:text-blue-600 text-gray-700"
+                      whileHover={{ y: -2 }}
                     >
-                      {item.dropdown.map((dropdownItem) => (
-                        <motion.button
-                          key={dropdownItem.href}
-                          onClick={() => handleNavClick(dropdownItem.href)}
-                          className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50/50 transition-colors"
-                          whileHover={{ x: 5 }}
+                      {item.label}
+                      <ChevronDown className="w-4 h-4" />
+                    </motion.button>
+                    
+                    <AnimatePresence>
+                      {activeDropdown === item.label && (
+                        <motion.div
+                          className="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-md border border-white/20 rounded-xl shadow-lg py-2"
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.2 }}
                         >
-                          {dropdownItem.label}
-                        </motion.button>
-                      ))}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                          {item.dropdown.map((dropdownItem) => (
+                            <motion.button
+                              key={dropdownItem.href}
+                              onClick={() => handleNavClick(dropdownItem.href)}
+                              className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50/50 transition-colors"
+                              whileHover={{ x: 5 }}
+                            >
+                              {dropdownItem.label}
+                            </motion.button>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </>
+                ) : (
+                  <motion.button
+                    onClick={() => handleNavClick(item.href!)}
+                    className="text-sm font-medium transition-all duration-300 hover:text-blue-600 text-gray-700"
+                    whileHover={{ y: -2 }}
+                  >
+                    {item.label}
+                  </motion.button>
+                )}
               </div>
             ))}
             
@@ -140,7 +142,7 @@ export default function Header() {
               <Button 
                 onClick={handleBookDemo} 
                 data-testid="button-book-demo"
-                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
               >
                 <Sparkles className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
                 Book a Demo
@@ -192,24 +194,38 @@ export default function Header() {
             >
               {navItems.map((item, index) => (
                 <div key={item.label}>
-                  <motion.div
-                    className="block px-4 py-3 text-sm font-medium text-gray-700 font-semibold"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                  >
-                    {item.label}
-                  </motion.div>
-                  {item.dropdown.map((dropdownItem) => (
+                  {item.dropdown ? (
+                    <>
+                      <motion.div
+                        className="block px-4 py-3 text-sm font-medium text-gray-700 font-semibold"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: index * 0.1 }}
+                      >
+                        {item.label}
+                      </motion.div>
+                      {item.dropdown.map((dropdownItem) => (
+                        <motion.div
+                          key={dropdownItem.href}
+                          className="block px-8 py-2 text-sm text-gray-600 hover:text-blue-600 cursor-pointer"
+                          onClick={() => handleNavClick(dropdownItem.href)}
+                          whileHover={{ x: 5 }}
+                        >
+                          {dropdownItem.label}
+                        </motion.div>
+                      ))}
+                    </>
+                  ) : (
                     <motion.div
-                      key={dropdownItem.href}
-                      className="block px-8 py-2 text-sm text-gray-600 hover:text-blue-600 cursor-pointer"
-                      onClick={() => handleNavClick(dropdownItem.href)}
-                      whileHover={{ x: 5 }}
+                      className="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 cursor-pointer"
+                      onClick={() => handleNavClick(item.href!)}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
                     >
-                      {dropdownItem.label}
+                      {item.label}
                     </motion.div>
-                  ))}
+                  )}
                 </div>
               ))}
               <motion.div 
@@ -219,7 +235,7 @@ export default function Header() {
                 transition={{ duration: 0.3, delay: 0.4 }}
               >
                 <Button 
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300" 
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300" 
                   onClick={handleBookDemo} 
                   data-testid="button-mobile-demo"
                 >

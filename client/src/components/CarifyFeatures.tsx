@@ -97,7 +97,7 @@ export default function CarifyFeatures() {
             <div className="container mx-auto">
                 <AnimatedSection>
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                        <h2 className="text-5xl md:text-7xl font-bold text-foreground mb-4">
                             Healthcare AI That Never Sleeps
                         </h2>
                         <p className="text-lg text-muted-foreground">
