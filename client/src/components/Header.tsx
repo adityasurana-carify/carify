@@ -30,35 +30,27 @@ export default function Header() {
 
   const navItems = [
     {
-      label: "Solutions",
-      dropdown: [
-        { href: "/use-cases", label: "Use Cases" },
-        { href: "/why-carify", label: "Why Carify" }
-      ]
+      label: "Use Cases",
+      href: "/#use-cases"
     },
     {
-      label: "Platform",
-      dropdown: [
-        { href: "/roi-calculator", label: "ROI Calculator" }
-      ]
-    },
-    {
-      label: "Agents",
-      dropdown: [
-        { href: "/#jenny", label: "Jenny - Admin Agent" },
-        { href: "/#ryan", label: "Joe (Care Manager)" }
-      ]
-    },
-    {
-      label: "Results",
+      label: "Why Carify",
       href: "/#advantage"
     },
     {
-      label: "How it Works",
+      label: "ROI Calculator",
+      href: "/roi-calculator"
+    },
+    {
+      label: "How It Works",
       href: "/#workflow"
     },
     {
-      label: "Resources",
+      label: "FAQ",
+      href: "/#faq"
+    },
+    {
+      label: "Blogs",
       href: "/blogs"
     }
   ];
@@ -84,55 +76,14 @@ export default function Header() {
 
           <nav className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
-              <div 
+              <motion.button
                 key={item.label}
-                className="relative"
-                onMouseEnter={() => item.dropdown && setActiveDropdown(item.label)}
-                onMouseLeave={() => setActiveDropdown(null)}
+                onClick={() => handleNavClick(item.href)}
+                className="text-sm font-medium transition-all duration-300 hover:text-blue-600 text-gray-700"
+                whileHover={{ y: -2 }}
               >
-                {item.dropdown ? (
-                  <>
-                    <motion.button
-                      className="flex items-center gap-1 text-sm font-medium transition-all duration-300 hover:text-blue-600 text-gray-700"
-                      whileHover={{ y: -2 }}
-                    >
-                      {item.label}
-                      <ChevronDown className="w-4 h-4" />
-                    </motion.button>
-                    
-                    <AnimatePresence>
-                      {activeDropdown === item.label && (
-                        <motion.div
-                          className="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-md border border-white/20 rounded-xl shadow-lg py-2"
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          {item.dropdown.map((dropdownItem) => (
-                            <motion.button
-                              key={dropdownItem.href}
-                              onClick={() => handleNavClick(dropdownItem.href)}
-                              className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:text-blue-600 hover:bg-blue-50/50 transition-colors"
-                              whileHover={{ x: 5 }}
-                            >
-                              {dropdownItem.label}
-                            </motion.button>
-                          ))}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </>
-                ) : (
-                  <motion.button
-                    onClick={() => handleNavClick(item.href!)}
-                    className="text-sm font-medium transition-all duration-300 hover:text-blue-600 text-gray-700"
-                    whileHover={{ y: -2 }}
-                  >
-                    {item.label}
-                  </motion.button>
-                )}
-              </div>
+                {item.label}
+              </motion.button>
             ))}
             
             <motion.div
@@ -193,40 +144,16 @@ export default function Header() {
               transition={{ duration: 0.3, ease: "easeInOut" }}
             >
               {navItems.map((item, index) => (
-                <div key={item.label}>
-                  {item.dropdown ? (
-                    <>
-                      <motion.div
-                        className="block px-4 py-3 text-sm font-medium text-gray-700 font-semibold"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: index * 0.1 }}
-                      >
-                        {item.label}
-                      </motion.div>
-                      {item.dropdown.map((dropdownItem) => (
-                        <motion.div
-                          key={dropdownItem.href}
-                          className="block px-8 py-2 text-sm text-gray-600 hover:text-blue-600 cursor-pointer"
-                          onClick={() => handleNavClick(dropdownItem.href)}
-                          whileHover={{ x: 5 }}
-                        >
-                          {dropdownItem.label}
-                        </motion.div>
-                      ))}
-                    </>
-                  ) : (
-                    <motion.div
-                      className="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 cursor-pointer"
-                      onClick={() => handleNavClick(item.href!)}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                    >
-                      {item.label}
-                    </motion.div>
-                  )}
-                </div>
+                <motion.div
+                  key={item.label}
+                  className="block px-4 py-3 text-sm font-medium text-gray-700 hover:text-blue-600 cursor-pointer"
+                  onClick={() => handleNavClick(item.href)}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                >
+                  {item.label}
+                </motion.div>
               ))}
               <motion.div 
                 className="px-4 pt-2"
