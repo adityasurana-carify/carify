@@ -38,7 +38,7 @@ export default function Header() {
       href: "/#advantage"
     },
     {
-      label: "ROI Calculator",
+      label: "ROI",
       href: "/roi-calculator"
     },
     {
