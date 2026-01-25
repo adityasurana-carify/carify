@@ -139,7 +139,139 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      
+
+      {/* Use Cases by Healthcare Setting */}
+      <section id="use-cases" className="py-20 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-5xl md:text-7xl font-bold mb-4">Use Cases by Healthcare Setting</h2>
+            <p className="text-xl text-gray-600">Discover how Jenny and Joe transform operations across different healthcare environments</p>
+          </div>
+          
+          <Tabs defaultValue="care-groups" className="w-full">
+            <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3 mb-12">
+              <TabsTrigger value="care-groups" className="text-base">Care Groups</TabsTrigger>
+              <TabsTrigger value="hospitals" className="text-base">Hospitals</TabsTrigger>
+              <TabsTrigger value="clinics" className="text-base">Clinics</TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="care-groups" className="space-y-6">
+              <div className="grid md:grid-cols-3 gap-6">
+                <Card className="hover:shadow-xl transition-shadow">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-blue-600" />
+                      Closing Care Gaps (Jenny)
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600">Jenny scans patient records for overdue screenings and calls patients to schedule wellness visits, directly improving your HEDIS scores.</p>
+                  </CardContent>
+                </Card>
+                <Card className="hover:shadow-xl transition-shadow">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-blue-600" />
+                      Transitional Care (Jenny)
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600">The moment a patient is discharged, Jenny initiates the "14-Day Bridge" protocol, ensuring follow-ups are booked to prevent readmission penalties.</p>
+                  </CardContent>
+                </Card>
+                <Card className="hover:shadow-xl transition-shadow">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-blue-600" />
+                      Patient Reactivation (Jenny)
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600">Automatically re-engage dormant patients with personalized welcome calls and service updates to keep your practice top-of-mind.</p>
+                  </CardContent>
+                </Card>
+              </div>
+            </TabsContent>
+
+            <TabsContent value="hospitals" className="space-y-6">
+              <div className="grid md:grid-cols-3 gap-6">
+                <Card className="hover:shadow-xl transition-shadow">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                      Perioperative Support (Joe)
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600">Joe manages the entire surgical journey—from ensuring pre-op clearance tests are done to monitoring post-op pain levels daily.</p>
+                  </CardContent>
+                </Card>
+                <Card className="hover:shadow-xl transition-shadow">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                      Risk Prediction (Joe)
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600">Joe tracks patient-reported outcomes (PROs) and alerts your triage team instantly if vitals trend negatively, preventing emergency readmissions.</p>
+                  </CardContent>
+                </Card>
+                <Card className="hover:shadow-xl transition-shadow">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                      Discharge Compliance (Joe)
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600">Automates the collection of post-discharge data, ensuring patients understand their medication and recovery instructions.</p>
+                  </CardContent>
+                </Card>
+              </div>
+            </TabsContent>
+
+            <TabsContent value="clinics" className="space-y-6">
+              <div className="grid md:grid-cols-3 gap-6">
+                <Card className="hover:shadow-xl transition-shadow">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-purple-600" />
+                      Smart Scheduling (Jenny)
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600">Jenny fills your calendar by negotiating times, handling cancellations, and instantly backfilling slots from your waitlist.</p>
+                  </CardContent>
+                </Card>
+                <Card className="hover:shadow-xl transition-shadow">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-purple-600" />
+                      Insurance Verification (Jenny)
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600">⭐ Star Feature: Jenny calls payers directly, navigating IVRs to verify deductibles and copays before the patient arrives.</p>
+                  </CardContent>
+                </Card>
+                <Card className="hover:shadow-xl transition-shadow">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <CheckCircle className="w-5 h-5 text-purple-600" />
+                      Revenue Recovery (Jenny)
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600">Jenny manages the awkward "collections" conversations, following up on unpaid balances with empathy and consistency.</p>
+                  </CardContent>
+                </Card>
+              </div>
+            </TabsContent>
+          </Tabs>
+        </div>
+      </section>
+
       <main className="flex-1">
         {/* Our Programs */}
         <section id="solutions" className="py-20 bg-gradient-to-br from-blue-50 to-cyan-50">
@@ -349,139 +481,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Use Cases by Healthcare Setting */}
-        <section id="solutions" className="py-20 bg-white">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-5xl md:text-7xl font-bold mb-4">Use Cases by Healthcare Setting</h2>
-              <p className="text-xl text-gray-600">Discover how Jenny and Joe transform operations across different healthcare environments</p>
-            </div>
-            
-            <Tabs defaultValue="care-groups" className="w-full">
-              <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3 mb-12">
-                <TabsTrigger value="care-groups" className="text-base">Care Groups</TabsTrigger>
-                <TabsTrigger value="hospitals" className="text-base">Hospitals</TabsTrigger>
-                <TabsTrigger value="clinics" className="text-base">Clinics</TabsTrigger>
-              </TabsList>
-
-              <TabsContent value="care-groups" className="space-y-6">
-                <div className="grid md:grid-cols-3 gap-6">
-                  <Card className="hover:shadow-xl transition-shadow">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-blue-600" />
-                        Closing Care Gaps (Jenny)
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-600">Jenny scans patient records for overdue screenings and calls patients to schedule wellness visits, directly improving your HEDIS scores.</p>
-                    </CardContent>
-                  </Card>
-                  <Card className="hover:shadow-xl transition-shadow">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-blue-600" />
-                        Transitional Care (Jenny)
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-600">The moment a patient is discharged, Jenny initiates the "14-Day Bridge" protocol, ensuring follow-ups are booked to prevent readmission penalties.</p>
-                    </CardContent>
-                  </Card>
-                  <Card className="hover:shadow-xl transition-shadow">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-blue-600" />
-                        Patient Reactivation (Jenny)
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-600">Automatically re-engage dormant patients with personalized welcome calls and service updates to keep your practice top-of-mind.</p>
-                    </CardContent>
-                  </Card>
-                </div>
-              </TabsContent>
-
-              <TabsContent value="hospitals" className="space-y-6">
-                <div className="grid md:grid-cols-3 gap-6">
-                  <Card className="hover:shadow-xl transition-shadow">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-green-600" />
-                        Perioperative Support (Joe)
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-600">Joe manages the entire surgical journey—from ensuring pre-op clearance tests are done to monitoring post-op pain levels daily.</p>
-                    </CardContent>
-                  </Card>
-                  <Card className="hover:shadow-xl transition-shadow">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-green-600" />
-                        Risk Prediction (Joe)
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-600">Joe tracks patient-reported outcomes (PROs) and alerts your triage team instantly if vitals trend negatively, preventing emergency readmissions.</p>
-                    </CardContent>
-                  </Card>
-                  <Card className="hover:shadow-xl transition-shadow">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-green-600" />
-                        Discharge Compliance (Joe)
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-600">Automates the collection of post-discharge data, ensuring patients understand their medication and recovery instructions.</p>
-                    </CardContent>
-                  </Card>
-                </div>
-              </TabsContent>
-
-              <TabsContent value="clinics" className="space-y-6">
-                <div className="grid md:grid-cols-3 gap-6">
-                  <Card className="hover:shadow-xl transition-shadow">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-purple-600" />
-                        Smart Scheduling (Jenny)
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-600">Jenny fills your calendar by negotiating times, handling cancellations, and instantly backfilling slots from your waitlist.</p>
-                    </CardContent>
-                  </Card>
-                  <Card className="hover:shadow-xl transition-shadow">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-purple-600" />
-                        Insurance Verification (Jenny)
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-600">⭐ Star Feature: Jenny calls payers directly, navigating IVRs to verify deductibles and copays before the patient arrives.</p>
-                    </CardContent>
-                  </Card>
-                  <Card className="hover:shadow-xl transition-shadow">
-                    <CardHeader>
-                      <CardTitle className="flex items-center gap-2">
-                        <CheckCircle className="w-5 h-5 text-purple-600" />
-                        Revenue Recovery (Jenny)
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-gray-600">Jenny manages the awkward "collections" conversations, following up on unpaid balances with empathy and consistency.</p>
-                    </CardContent>
-                  </Card>
-                </div>
-              </TabsContent>
-            </Tabs>
-          </div>
-        </section>
         {/* FAQs */}
-        <section className="py-20 bg-white">
+        <section id="faq" className="py-20 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <ParallaxSection className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
