@@ -6,7 +6,7 @@ import { GlowCard } from "./spotlight-card"
 const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement> & { useGlow?: boolean; glowColor?: 'blue' | 'purple' | 'green' | 'red' | 'orange' }
->(({ className, useGlow = true, glowColor = 'blue', ...props }, ref) => {
+>(({ className, useGlow = false, glowColor = 'blue', ...props }, ref) => {
   if (useGlow) {
     return (
       <GlowCard
