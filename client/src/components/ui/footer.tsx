@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 interface FooterProps {
   logo: React.ReactNode
   brandName: string
-  brandDescription?: string
+  brandDescription?: React.ReactNode
   socialLinks: Array<{
     icon: React.ReactNode
     href: string

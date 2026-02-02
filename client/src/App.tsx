@@ -16,10 +16,14 @@ const ROICalculatorPage = lazy(() => import("@/pages/roi-calculator").catch(() =
 const WhyCarifyPage = lazy(() => import("@/pages/why-carify").catch(() => ({ default: () => <div>Error loading Why Carify page</div> })));
 const UseCasesPage = lazy(() => import("@/pages/use-cases").catch(() => ({ default: () => <div>Error loading Use Cases page</div> })));
 const BlogsPage = lazy(() => import("@/pages/blogs").catch(() => ({ default: () => <div>Error loading Blogs page</div> })));
+const BlogPostPage = lazy(() => import("@/pages/blog-post").catch(() => ({ default: () => <div>Error loading Blog Post page</div> })));
 const ResourcesPage = lazy(() => import("@/pages/resources").catch(() => ({ default: () => <div>Error loading Resources page</div> })));
 const BookDemoPage = lazy(() => import("@/pages/book-demo").catch(() => ({ default: () => <div>Error loading Book Demo page</div> })));
 const ScheduleDemoPage = lazy(() => import("@/pages/schedule-demo").catch(() => ({ default: () => <div>Error loading Schedule Demo page</div> })));
 const RuixenDemoPage = lazy(() => import("@/pages/ruixen-demo").catch(() => ({ default: () => <div>Error loading Ruixen Demo page</div> })));
+const PrivacyPage = lazy(() => import("@/pages/privacy").catch(() => ({ default: () => <div>Error loading Privacy page</div> })));
+const TermsPage = lazy(() => import("@/pages/terms").catch(() => ({ default: () => <div>Error loading Terms page</div> })));
+const BAAPage = lazy(() => import("@/pages/baa").catch(() => ({ default: () => <div>Error loading BAA page</div> })));
 const NotFound = lazy(() => import("@/pages/not-found").catch(() => ({ default: () => <div>Page not found</div> })));
 
 function ErrorFallback({ error, resetErrorBoundary }: { error: Error; resetErrorBoundary: () => void }) {
@@ -93,6 +97,11 @@ function Router() {
               <BlogsPage />
             </PageTransition>
           </Route>
+          <Route path="/blog/:id">
+            <PageTransition>
+              <BlogPostPage />
+            </PageTransition>
+          </Route>
           <Route path="/resources">
             <PageTransition>
               <ResourcesPage />
@@ -113,6 +122,21 @@ function Router() {
               <RuixenDemoPage />
             </PageTransition>
           </Route>
+          <Route path="/privacy">
+            <PageTransition>
+              <PrivacyPage />
+            </PageTransition>
+          </Route>
+          <Route path="/terms">
+            <PageTransition>
+              <TermsPage />
+            </PageTransition>
+          </Route>
+          <Route path="/baa">
+            <PageTransition>
+              <BAAPage />
+            </PageTransition>
+          </Route>
           <Route>
             <PageTransition>
               <NotFound />
@@ -131,7 +155,7 @@ function App() {
       <DemoModalProvider>
         <QueryClientProvider client={queryClient}>
           <TooltipProvider>
-            <div className="scrollbar-modern">
+            <div className="scrollbar-modern min-h-screen overflow-x-hidden">
               <Suspense fallback={<LoadingPage />}>
                 <Router />
               </Suspense>

@@ -74,7 +74,7 @@ Time Zone: ${selectedTimeZone}
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col overflow-x-hidden">
         <Header />
         <main className="flex-1 flex items-center justify-center py-20 bg-gradient-to-br from-green-50 via-white to-blue-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl text-center">
@@ -101,7 +101,7 @@ Time Zone: ${selectedTimeZone}
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-x-hidden">
       <Header />
       <main className="flex-1 py-20 bg-gradient-to-br from-blue-50 via-white to-purple-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">

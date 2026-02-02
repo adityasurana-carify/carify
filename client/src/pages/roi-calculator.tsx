@@ -25,7 +25,7 @@ export default function ROICalculatorPage() {
   const { openModal } = useDemoModal();
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-x-hidden">
       <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-white/20 shadow-lg">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-20 md:h-24 items-center justify-between">

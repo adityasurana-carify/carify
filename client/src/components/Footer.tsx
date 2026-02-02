@@ -64,7 +64,7 @@ export default function Footer() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <h3 className="text-lg font-bold text-white">Carify Health</h3>
-            <p className="text-sm text-blue-100 leading-relaxed">
+            <p className="text-sm text-blue-100 leading-relaxed font-bold">
               Moving healthcare from Reactive to Predictive.
             </p>
             <div className="flex space-x-4">

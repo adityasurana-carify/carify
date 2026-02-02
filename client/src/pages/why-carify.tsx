@@ -17,7 +17,7 @@ import { WordFadeIn } from "@/components/ui/word-fade-in";
 
 export default function WhyCarifyPage() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-x-hidden">
       <Header />
       
       <main className="flex-1">

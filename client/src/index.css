@@ -175,8 +175,25 @@
     @apply border-border;
   }
 
+  html {
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    height: 100%;
+  }
+
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  #root {
+    overflow-x: hidden;
+    min-height: 100vh;
   }
 }
 
@@ -453,6 +470,7 @@
   .scrollbar-modern {
     scrollbar-width: thin;
     scrollbar-color: rgba(59, 130, 246, 0.3) transparent;
+    -webkit-overflow-scrolling: touch;
   }
 
   .scrollbar-modern::-webkit-scrollbar {

@@ -1,4 +1,4 @@
-import { Phone } from "lucide-react";
+import { Linkedin, Twitter, Instagram } from "lucide-react";
 import { Footer } from "@/components/ui/footer";
 
 export default function GlobalFooter() {
@@ -6,18 +6,19 @@ export default function GlobalFooter() {
     <Footer
       logo={<img src="/logo.png" alt="Carify Health" className="h-20 w-auto" />}
       brandName=""
-      brandDescription="Moving healthcare from Reactive to Predictive."
-      socialLinks={[{ icon: <Phone className="h-5 w-5" />, href: "tel:+1-555-0123", label: "Call Us" }]}
+      brandDescription={<span className="font-bold">Moving healthcare from Reactive to Predictive.</span>}
+      socialLinks={[
+        { icon: <Linkedin className="h-5 w-5" />, href: "https://linkedin.com/company/carify-health", label: "LinkedIn" },
+        { icon: <Twitter className="h-5 w-5" />, href: "https://twitter.com/carifyhealth", label: "Twitter" },
+        { icon: <Instagram className="h-5 w-5" />, href: "https://instagram.com/carifyhealth", label: "Instagram" }
+      ]}
       productLinks={[
         { href: "/platform", label: "Platform" },
-        { href: "/jenny", label: "Jenny - Admin Agent" },
-        { href: "/joe", label: "Joe (Care Manager)" },
-        { href: "/integrations", label: "Integrations" },
-        { href: "/security", label: "Security (SOC2/HIPAA)" }
+        { href: "/jenny", label: "Jenny (AI Insurance Coordinator)" },
+        { href: "/joe", label: "Ryan (AI Care Manager)" }
       ]}
       supportLinks={[
-        { href: "/help", label: "Help Center" },
-        { href: "https://wa.me/15550123", label: "Priority Support: WhatsApp" },
+        { href: "https://wa.me/918552003232", label: "Priority Support: WhatsApp" },
         { href: "mailto:contact@carify.health", label: "Email: contact@carify.health" }
       ]}
       legalLinks={[
