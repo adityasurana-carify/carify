@@ -1,4 +1,4 @@
-import { Linkedin, Instagram } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import { Footer } from "@/components/ui/footer";
 
 export default function GlobalFooter() {
@@ -8,8 +8,7 @@ export default function GlobalFooter() {
       brandName=""
       brandDescription={<span className="font-bold">Moving healthcare from Reactive to Predictive.</span>}
       socialLinks={[
-        { icon: <Linkedin className="h-5 w-5" />, href: "https://linkedin.com/company/carify-health", label: "LinkedIn" },
-        { icon: <Instagram className="h-5 w-5" />, href: "https://instagram.com/carifyhealth", label: "Instagram" }
+        { icon: <Linkedin className="h-5 w-5" />, href: "https://www.linkedin.com/company/carifyhealth/", label: "LinkedIn" }
       ]}
       productLinks={[
         { href: "/platform", label: "Platform" },

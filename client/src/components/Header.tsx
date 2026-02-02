@@ -15,17 +15,29 @@ export default function Header() {
   };
 
   const handleNavClick = (href: string) => {
+    setMobileMenuOpen(false);
+    setActiveDropdown(null);
+    
     if (href.startsWith('/#')) {
-      const id = href.substring(2);
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+      if (location !== '/') {
+        setLocation('/');
+        setTimeout(() => {
+          const id = href.substring(2);
+          const element = document.getElementById(id);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        const id = href.substring(2);
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     } else {
       setLocation(href);
     }
-    setMobileMenuOpen(false);
-    setActiveDropdown(null);
   };
 
   const navItems = [
