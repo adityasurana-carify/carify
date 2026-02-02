@@ -284,7 +284,7 @@ export default function HomePage() {
             <ParallaxSection className="mb-12">
               <div className="grid md:grid-cols-2 gap-8 mb-12">
                 {/* Category A: Clinical Operations */}
-                <Card className="border-2 border-blue-200">
+                <Card className="">
                   <CardHeader>
                     <CardTitle className="text-2xl text-blue-600">Clinical Operations</CardTitle>
                     <CardDescription className="text-base">The "Joe" & "Jenny" Suite - Focus on revenue and health outcomes</CardDescription>
@@ -324,7 +324,7 @@ export default function HomePage() {
                 </Card>
 
                 {/* Category B: Patient Experience */}
-                <Card className="border-2 border-purple-200">
+                <Card className="">
                   <CardHeader>
                     <CardTitle className="text-2xl text-purple-600">Patient Experience & Engagement</CardTitle>
                     <CardDescription className="text-base">Holistic tools to keep patients happy and engaged during recovery</CardDescription>
@@ -432,7 +432,7 @@ export default function HomePage() {
               <h2 className="text-5xl md:text-7xl font-bold mb-4">Why Leading Practices Choose Carify</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-              <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-2 border-blue-200">
+              <Card className="bg-gradient-to-br from-blue-50 to-blue-100">
                 <CardHeader>
                   <CardTitle className="text-3xl font-bold text-blue-600">30% Lower Overhead</CardTitle>
                 </CardHeader>
@@ -440,7 +440,7 @@ export default function HomePage() {
                   <p className="text-gray-700">We don't just save minutes; we remove entire workflows. By automating benefits verification and hold times, we slash operational costs by a third.</p>
                 </CardContent>
               </Card>
-              <Card className="bg-gradient-to-br from-green-50 to-green-100 border-2 border-green-200">
+              <Card className="bg-gradient-to-br from-green-50 to-green-100">
                 <CardHeader>
                   <CardTitle className="text-3xl font-bold text-green-600">4x More Preventive Visits</CardTitle>
                 </CardHeader>
@@ -448,7 +448,7 @@ export default function HomePage() {
                   <p className="text-gray-700">Jenny proactively mines your data to find care gaps, quadrupling the volume of high-value wellness visits and screenings without adding staff work.</p>
                 </CardContent>
               </Card>
-              <Card className="bg-gradient-to-br from-purple-50 to-purple-100 border-2 border-purple-200">
+              <Card className="bg-gradient-to-br from-purple-50 to-purple-100">
                 <CardHeader>
                   <CardTitle className="text-3xl font-bold text-purple-600">85% First-Contact Resolution</CardTitle>
                 </CardHeader>
@@ -456,7 +456,7 @@ export default function HomePage() {
                   <p className="text-gray-700">Jenny doesn't just take messages. She resolves inquiries—scheduling, billing, and intake—completely autonomously.</p>
                 </CardContent>
               </Card>
-              <Card className="bg-gradient-to-br from-orange-50 to-orange-100 border-2 border-orange-200">
+              <Card className="bg-gradient-to-br from-orange-50 to-orange-100">
                 <CardHeader>
                   <CardTitle className="text-3xl font-bold text-orange-600">&lt;3% No-Show Rate</CardTitle>
                 </CardHeader>

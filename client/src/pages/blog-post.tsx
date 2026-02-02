@@ -527,7 +527,7 @@ export default function BlogPost() {
                 );
               })}
 
-              <div className="mt-12 p-8 border-2 border-gray-200 rounded-2xl bg-white">
+              <div className="mt-12 p-8  rounded-2xl bg-white">
                 <h3 className="text-2xl font-bold mb-4 text-gray-900">Ready to transform your revenue cycle?</h3>
                 <p className="mb-6 text-lg text-gray-700">See how Carify's AI solutions can help your clinic.</p>
                 <Link href="/book-demo">

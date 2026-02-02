@@ -14,8 +14,8 @@ export default function GlobalFooter() {
       ]}
       productLinks={[
         { href: "/platform", label: "Platform" },
-        { href: "/jenny", label: "Jenny (AI Insurance Coordinator)" },
-        { href: "/joe", label: "Ryan (AI Care Manager)" }
+        { href: "/jenny", label: "Jenny (AI Admin Agent)" },
+        { href: "/joe", label: "Joe (AI Care Manager)" }
       ]}
       supportLinks={[
         { href: "https://wa.me/918552003232", label: "Priority Support: WhatsApp" },

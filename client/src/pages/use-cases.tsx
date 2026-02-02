@@ -172,7 +172,7 @@ export default function UseCasesPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {payerUseCases.map((useCase, index) => (
               <ScrollCard key={index} delay={index * 150}>
-                <Card className="hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20 h-full">
+                <Card className="hover:shadow-lg transition-all duration-300  h-full">
                   <CardHeader>
                     <div className="flex items-center gap-3 mb-4">
                       <div className="p-3 bg-primary/10 rounded-lg">
@@ -228,7 +228,7 @@ export default function UseCasesPage() {
           <div className="grid md:grid-cols-2 gap-8">
             {patientUseCases.map((useCase, index) => (
               <ScrollCard key={index} delay={index * 200}>
-                <Card className="hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20 h-full">
+                <Card className="hover:shadow-lg transition-all duration-300  h-full">
                   <CardHeader>
                     <div className="flex items-center gap-3 mb-4">
                       <div className="p-3 bg-primary/10 rounded-lg">
