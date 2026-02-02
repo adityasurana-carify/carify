@@ -84,7 +84,7 @@ export default function Blogs() {
         <section className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post) => (
-              <Card key={post.id} className="h-full hover:shadow-lg transition-shadow duration-300 overflow-hidden">
+              <Card key={post.id} className="h-full transition-shadow duration-300 overflow-hidden">
                 <img 
                   src={post.imageUrl} 
                   alt={post.title}

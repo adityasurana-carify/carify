@@ -157,7 +157,7 @@ export default function HomePage() {
 
             <TabsContent value="care-groups" className="space-y-6">
               <div className="grid md:grid-cols-3 gap-6">
-                <Card className="hover:shadow-xl transition-shadow">
+                <Card className="transition-shadow">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <CheckCircle className="w-5 h-5 text-blue-600" />
@@ -168,7 +168,7 @@ export default function HomePage() {
                     <p className="text-gray-600">Jenny scans patient records for overdue screenings and calls patients to schedule wellness visits, directly improving your HEDIS scores.</p>
                   </CardContent>
                 </Card>
-                <Card className="hover:shadow-xl transition-shadow">
+                <Card className="transition-shadow">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <CheckCircle className="w-5 h-5 text-blue-600" />
@@ -179,7 +179,7 @@ export default function HomePage() {
                     <p className="text-gray-600">The moment a patient is discharged, Jenny initiates the "14-Day Bridge" protocol, ensuring follow-ups are booked to prevent readmission penalties.</p>
                   </CardContent>
                 </Card>
-                <Card className="hover:shadow-xl transition-shadow">
+                <Card className="transition-shadow">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <CheckCircle className="w-5 h-5 text-blue-600" />
@@ -195,7 +195,7 @@ export default function HomePage() {
 
             <TabsContent value="hospitals" className="space-y-6">
               <div className="grid md:grid-cols-3 gap-6">
-                <Card className="hover:shadow-xl transition-shadow">
+                <Card className="transition-shadow">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600" />
@@ -206,7 +206,7 @@ export default function HomePage() {
                     <p className="text-gray-600">Joe manages the entire surgical journey—from ensuring pre-op clearance tests are done to monitoring post-op pain levels daily.</p>
                   </CardContent>
                 </Card>
-                <Card className="hover:shadow-xl transition-shadow">
+                <Card className="transition-shadow">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600" />
@@ -217,7 +217,7 @@ export default function HomePage() {
                     <p className="text-gray-600">Joe tracks patient-reported outcomes (PROs) and alerts your triage team instantly if vitals trend negatively, preventing emergency readmissions.</p>
                   </CardContent>
                 </Card>
-                <Card className="hover:shadow-xl transition-shadow">
+                <Card className="transition-shadow">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <CheckCircle className="w-5 h-5 text-green-600" />
@@ -233,7 +233,7 @@ export default function HomePage() {
 
             <TabsContent value="clinics" className="space-y-6">
               <div className="grid md:grid-cols-3 gap-6">
-                <Card className="hover:shadow-xl transition-shadow">
+                <Card className="transition-shadow">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <CheckCircle className="w-5 h-5 text-purple-600" />
@@ -244,7 +244,7 @@ export default function HomePage() {
                     <p className="text-gray-600">Jenny fills your calendar by negotiating times, handling cancellations, and instantly backfilling slots from your waitlist.</p>
                   </CardContent>
                 </Card>
-                <Card className="hover:shadow-xl transition-shadow">
+                <Card className="transition-shadow">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <CheckCircle className="w-5 h-5 text-purple-600" />
@@ -255,7 +255,7 @@ export default function HomePage() {
                     <p className="text-gray-600">⭐ Star Feature: Jenny calls payers directly, navigating IVRs to verify deductibles and copays before the patient arrives.</p>
                   </CardContent>
                 </Card>
-                <Card className="hover:shadow-xl transition-shadow">
+                <Card className="transition-shadow">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <CheckCircle className="w-5 h-5 text-purple-600" />
@@ -370,7 +370,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <Card className="text-center hover:shadow-xl transition-shadow">
+              <Card className="text-center transition-shadow">
                 <CardHeader>
                   <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <CheckCircle className="w-8 h-8 text-blue-600" />
@@ -381,7 +381,7 @@ export default function HomePage() {
                   <p className="text-gray-600">We don't just read data; we write it. Updates sync to your schedule and patient charts in real-time.</p>
                 </CardContent>
               </Card>
-              <Card className="text-center hover:shadow-xl transition-shadow">
+              <Card className="text-center transition-shadow">
                 <CardHeader>
                   <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <TrendingUp className="w-8 h-8 text-green-600" />
@@ -392,7 +392,7 @@ export default function HomePage() {
                   <p className="text-gray-600">Jenny handles the routine (80% of volume) and instantly escalates complex emotional needs to your human staff.</p>
                 </CardContent>
               </Card>
-              <Card className="text-center hover:shadow-xl transition-shadow">
+              <Card className="text-center transition-shadow">
                 <CardHeader>
                   <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Users className="w-8 h-8 text-purple-600" />
@@ -403,7 +403,7 @@ export default function HomePage() {
                   <p className="text-gray-600">Unlike basic chatbots, Joe is trained on medical protocols to monitor recovery and flag risks accurately.</p>
                 </CardContent>
               </Card>
-              <Card className="text-center hover:shadow-xl transition-shadow">
+              <Card className="text-center transition-shadow">
                 <CardHeader>
                   <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Clock className="w-8 h-8 text-orange-600" />

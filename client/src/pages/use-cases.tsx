@@ -172,7 +172,7 @@ export default function UseCasesPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {payerUseCases.map((useCase, index) => (
               <ScrollCard key={index} delay={index * 150}>
-                <Card className="hover:shadow-lg transition-all duration-300  h-full">
+                <Card className="transition-all duration-300  h-full">
                   <CardHeader>
                     <div className="flex items-center gap-3 mb-4">
                       <div className="p-3 bg-primary/10 rounded-lg">
@@ -228,7 +228,7 @@ export default function UseCasesPage() {
           <div className="grid md:grid-cols-2 gap-8">
             {patientUseCases.map((useCase, index) => (
               <ScrollCard key={index} delay={index * 200}>
-                <Card className="hover:shadow-lg transition-all duration-300  h-full">
+                <Card className="transition-all duration-300  h-full">
                   <CardHeader>
                     <div className="flex items-center gap-3 mb-4">
                       <div className="p-3 bg-primary/10 rounded-lg">
@@ -289,7 +289,7 @@ export default function UseCasesPage() {
 
               <TabsContent value="care-groups" className="space-y-6">
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  <Card className="hover:shadow-xl transition-shadow">
+                  <Card className="transition-shadow">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
                         <Shield className="w-5 h-5 text-blue-600" />
@@ -300,7 +300,7 @@ export default function UseCasesPage() {
                       <p className="text-gray-600">Jenny scans patient records for overdue screenings and calls patients to schedule wellness visits, directly improving your HEDIS scores.</p>
                     </CardContent>
                   </Card>
-                  <Card className="hover:shadow-xl transition-shadow">
+                  <Card className="transition-shadow">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
                         <Heart className="w-5 h-5 text-blue-600" />
@@ -311,7 +311,7 @@ export default function UseCasesPage() {
                       <p className="text-gray-600">The moment a patient is discharged, Jenny initiates the "14-Day Bridge" protocol, ensuring follow-ups are booked to prevent readmission penalties.</p>
                     </CardContent>
                   </Card>
-                  <Card className="hover:shadow-xl transition-shadow">
+                  <Card className="transition-shadow">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
                         <Users className="w-5 h-5 text-blue-600" />
@@ -327,7 +327,7 @@ export default function UseCasesPage() {
 
               <TabsContent value="hospitals" className="space-y-6">
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  <Card className="hover:shadow-xl transition-shadow">
+                  <Card className="transition-shadow">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
                         <Stethoscope className="w-5 h-5 text-green-600" />
@@ -338,7 +338,7 @@ export default function UseCasesPage() {
                       <p className="text-gray-600">Joe manages the entire surgical journey—from ensuring pre-op clearance tests are done to monitoring post-op pain levels daily.</p>
                     </CardContent>
                   </Card>
-                  <Card className="hover:shadow-xl transition-shadow">
+                  <Card className="transition-shadow">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
                         <Shield className="w-5 h-5 text-green-600" />
@@ -349,7 +349,7 @@ export default function UseCasesPage() {
                       <p className="text-gray-600">Joe tracks patient-reported outcomes (PROs) and alerts your triage team instantly if vitals trend negatively, preventing emergency readmissions.</p>
                     </CardContent>
                   </Card>
-                  <Card className="hover:shadow-xl transition-shadow">
+                  <Card className="transition-shadow">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
                         <FileCheck className="w-5 h-5 text-green-600" />
@@ -365,7 +365,7 @@ export default function UseCasesPage() {
 
               <TabsContent value="clinics" className="space-y-6">
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  <Card className="hover:shadow-xl transition-shadow">
+                  <Card className="transition-shadow">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
                         <Calendar className="w-5 h-5 text-purple-600" />
@@ -376,7 +376,7 @@ export default function UseCasesPage() {
                       <p className="text-gray-600">Jenny fills your calendar by negotiating times, handling cancellations, and instantly backfilling slots from your waitlist.</p>
                     </CardContent>
                   </Card>
-                  <Card className="hover:shadow-xl transition-shadow">
+                  <Card className="transition-shadow">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
                         <Shield className="w-5 h-5 text-purple-600" />
@@ -387,7 +387,7 @@ export default function UseCasesPage() {
                       <p className="text-gray-600 mb-2">⭐ Star Feature: Jenny calls payers directly, navigating IVRs to verify deductibles and copays before the patient arrives.</p>
                     </CardContent>
                   </Card>
-                  <Card className="hover:shadow-xl transition-shadow">
+                  <Card className="transition-shadow">
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
                         <CreditCard className="w-5 h-5 text-purple-600" />
