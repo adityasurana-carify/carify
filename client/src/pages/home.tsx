@@ -28,7 +28,7 @@ export default function HomePage() {
   const [, setLocation] = useLocation();
 
   return (
-    <div className="min-h-screen flex flex-col overflow-x-hidden" id="hero">
+    <div className="min-h-screen flex flex-col overflow-x-hidden pt-20 md:pt-24" id="hero">
       <Header />
       
       {/* New Hero Section */}
