@@ -15,27 +15,37 @@ export default function Header() {
   };
 
   const handleNavClick = (href: string) => {
-    setMobileMenuOpen(false);
     setActiveDropdown(null);
     
     if (href.startsWith('/#')) {
+      const id = href.substring(2);
+      
       if (location !== '/') {
         setLocation('/');
+        setMobileMenuOpen(false);
         setTimeout(() => {
-          const id = href.substring(2);
           const element = document.getElementById(id);
           if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+            const headerOffset = 100;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+          }
+        }, 300);
+      } else {
+        setMobileMenuOpen(false);
+        setTimeout(() => {
+          const element = document.getElementById(id);
+          if (element) {
+            const headerOffset = 100;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
           }
         }, 100);
-      } else {
-        const id = href.substring(2);
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
       }
     } else {
+      setMobileMenuOpen(false);
       setLocation(href);
     }
   };
